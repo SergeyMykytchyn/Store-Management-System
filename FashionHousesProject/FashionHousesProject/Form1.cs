@@ -12,11 +12,11 @@ using System.Data.Entity;
 
 namespace FashionHousesProject
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private ClassLibraryFashionHousesEF.FashionHousesEntities ctx;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
