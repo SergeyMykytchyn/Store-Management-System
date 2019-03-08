@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="514e1860ef3046e2b1e201ee8b6ab3db" Name="Diagram1">
+        <EntityTypeShape EntityType="FashionHousesModel.Clothes" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionHousesModel.ClothesInShop" Width="1.5" PointX="7.5" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionHousesModel.Designers" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionHousesModel.Divisions" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionHousesModel.FashionHouses" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionHousesModel.Presidents" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashionHousesModel.ShopClothes" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <AssociationConnector Association="FashionHousesModel.FK_Clothes_Designers" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionHousesModel.FK_Clothes_FashionHouses" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionHousesModel.FK_ClothesInShop_Clothes" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionHousesModel.FK_ClothesInShop_ShopClothes" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionHousesModel.FK_Designers_FashionHouses" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionHousesModel.FK_Divisions_FashionHouses" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionHousesModel.FK_Presidents_FashionHouses" ManuallyRouted="false" />
+        <AssociationConnector Association="FashionHousesModel.FK_ShopClothes_FashionHouses" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

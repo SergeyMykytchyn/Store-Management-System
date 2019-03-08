@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FashionHousesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clothes">
+          <Key>
+            <PropertyRef Name="CL_ID" />
+          </Key>
+          <Property Name="CL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CL_FH" Type="int" Nullable="false" />
+          <Property Name="CL_DES" Type="int" Nullable="false" />
+          <Property Name="CL_DESCRIPTION" Type="nchar" MaxLength="255" Nullable="false" />
+          <Property Name="CL_CATEGORY" Type="nchar" MaxLength="100" />
+          <Property Name="CL_COLOR" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ClothesInShop">
+          <Key>
+            <PropertyRef Name="CLSH_ID" />
+          </Key>
+          <Property Name="CLSH_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLSH_SH" Type="int" Nullable="false" />
+          <Property Name="CLSH_CL" Type="int" Nullable="false" />
+          <Property Name="CLSH_QTY" Type="int" Nullable="false" />
+          <Property Name="CLSH_COST" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Designers">
+          <Key>
+            <PropertyRef Name="DES_ID" />
+          </Key>
+          <Property Name="DES_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DES_FULLNAME" Type="nchar" MaxLength="255" Nullable="false" />
+          <Property Name="DES_PASSPORT" Type="int" Nullable="false" />
+          <Property Name="DES_GENDER" Type="nchar" MaxLength="100" />
+          <Property Name="DES_FH" Type="int" Nullable="false" />
+          <Property Name="DES_BIRTHDAY" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Divisions">
+          <Key>
+            <PropertyRef Name="DIV_ID" />
+          </Key>
+          <Property Name="DIV_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DIV_FH" Type="int" Nullable="false" />
+          <Property Name="DIV_NAME" Type="nchar" MaxLength="100" />
+          <Property Name="DIV_ADRESS" Type="nchar" MaxLength="255" Nullable="false" />
+          <Property Name="DIV_QTY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FashionHouses">
+          <Key>
+            <PropertyRef Name="FH_ID" />
+          </Key>
+          <Property Name="FH_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FH_NAME" Type="nchar" MaxLength="100" />
+          <Property Name="FH_ADRESS" Type="nchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Presidents">
+          <Key>
+            <PropertyRef Name="PR_ID" />
+          </Key>
+          <Property Name="PR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PR_PASSPORT" Type="int" Nullable="false" />
+          <Property Name="PR_FH" Type="int" Nullable="false" />
+          <Property Name="PR_FULLNAME" Type="nchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShopClothes">
+          <Key>
+            <PropertyRef Name="SH_ID" />
+          </Key>
+          <Property Name="SH_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SH_ADRESS" Type="nchar" MaxLength="255" Nullable="false" />
+          <Property Name="SH_QTY_EMP" Type="int" Nullable="false" />
+          <Property Name="SH_FH" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Clothes_Designers">
+          <End Role="Designers" Type="Self.Designers" Multiplicity="1" />
+          <End Role="Clothes" Type="Self.Clothes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designers">
+              <PropertyRef Name="DES_ID" />
+            </Principal>
+            <Dependent Role="Clothes">
+              <PropertyRef Name="CL_DES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clothes_FashionHouses">
+          <End Role="FashionHouses" Type="Self.FashionHouses" Multiplicity="1" />
+          <End Role="Clothes" Type="Self.Clothes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FashionHouses">
+              <PropertyRef Name="FH_ID" />
+            </Principal>
+            <Dependent Role="Clothes">
+              <PropertyRef Name="CL_FH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClothesInShop_Clothes">
+          <End Role="Clothes" Type="Self.Clothes" Multiplicity="1" />
+          <End Role="ClothesInShop" Type="Self.ClothesInShop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clothes">
+              <PropertyRef Name="CL_ID" />
+            </Principal>
+            <Dependent Role="ClothesInShop">
+              <PropertyRef Name="CLSH_CL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClothesInShop_ShopClothes">
+          <End Role="ShopClothes" Type="Self.ShopClothes" Multiplicity="1" />
+          <End Role="ClothesInShop" Type="Self.ClothesInShop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShopClothes">
+              <PropertyRef Name="SH_ID" />
+            </Principal>
+            <Dependent Role="ClothesInShop">
+              <PropertyRef Name="CLSH_SH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Designers_FashionHouses">
+          <End Role="FashionHouses" Type="Self.FashionHouses" Multiplicity="1" />
+          <End Role="Designers" Type="Self.Designers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FashionHouses">
+              <PropertyRef Name="FH_ID" />
+            </Principal>
+            <Dependent Role="Designers">
+              <PropertyRef Name="DES_FH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Divisions_FashionHouses">
+          <End Role="FashionHouses" Type="Self.FashionHouses" Multiplicity="1" />
+          <End Role="Divisions" Type="Self.Divisions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FashionHouses">
+              <PropertyRef Name="FH_ID" />
+            </Principal>
+            <Dependent Role="Divisions">
+              <PropertyRef Name="DIV_FH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Presidents_FashionHouses">
+          <End Role="FashionHouses" Type="Self.FashionHouses" Multiplicity="1" />
+          <End Role="Presidents" Type="Self.Presidents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FashionHouses">
+              <PropertyRef Name="FH_ID" />
+            </Principal>
+            <Dependent Role="Presidents">
+              <PropertyRef Name="PR_FH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopClothes_FashionHouses">
+          <End Role="FashionHouses" Type="Self.FashionHouses" Multiplicity="1" />
+          <End Role="ShopClothes" Type="Self.ShopClothes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FashionHouses">
+              <PropertyRef Name="FH_ID" />
+            </Principal>
+            <Dependent Role="ShopClothes">
+              <PropertyRef Name="SH_FH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FashionHousesModelStoreContainer">
+          <EntitySet Name="Clothes" EntityType="Self.Clothes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClothesInShop" EntityType="Self.ClothesInShop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Designers" EntityType="Self.Designers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Divisions" EntityType="Self.Divisions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FashionHouses" EntityType="Self.FashionHouses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Presidents" EntityType="Self.Presidents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShopClothes" EntityType="Self.ShopClothes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Clothes_Designers" Association="Self.FK_Clothes_Designers">
+            <End Role="Designers" EntitySet="Designers" />
+            <End Role="Clothes" EntitySet="Clothes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clothes_FashionHouses" Association="Self.FK_Clothes_FashionHouses">
+            <End Role="FashionHouses" EntitySet="FashionHouses" />
+            <End Role="Clothes" EntitySet="Clothes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClothesInShop_Clothes" Association="Self.FK_ClothesInShop_Clothes">
+            <End Role="Clothes" EntitySet="Clothes" />
+            <End Role="ClothesInShop" EntitySet="ClothesInShop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClothesInShop_ShopClothes" Association="Self.FK_ClothesInShop_ShopClothes">
+            <End Role="ShopClothes" EntitySet="ShopClothes" />
+            <End Role="ClothesInShop" EntitySet="ClothesInShop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Designers_FashionHouses" Association="Self.FK_Designers_FashionHouses">
+            <End Role="FashionHouses" EntitySet="FashionHouses" />
+            <End Role="Designers" EntitySet="Designers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Divisions_FashionHouses" Association="Self.FK_Divisions_FashionHouses">
+            <End Role="FashionHouses" EntitySet="FashionHouses" />
+            <End Role="Divisions" EntitySet="Divisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Presidents_FashionHouses" Association="Self.FK_Presidents_FashionHouses">
+            <End Role="FashionHouses" EntitySet="FashionHouses" />
+            <End Role="Presidents" EntitySet="Presidents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopClothes_FashionHouses" Association="Self.FK_ShopClothes_FashionHouses">
+            <End Role="FashionHouses" EntitySet="FashionHouses" />
+            <End Role="ShopClothes" EntitySet="ShopClothes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FashionHousesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Clothes">
+          <Key>
+            <PropertyRef Name="CL_ID" />
+          </Key>
+          <Property Name="CL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CL_FH" Type="Int32" Nullable="false" />
+          <Property Name="CL_DES" Type="Int32" Nullable="false" />
+          <Property Name="CL_DESCRIPTION" Type="String" MaxLength="255" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CL_CATEGORY" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="CL_COLOR" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Designers" Relationship="Self.FK_Clothes_Designers" FromRole="Clothes" ToRole="Designers" />
+          <NavigationProperty Name="FashionHouses" Relationship="Self.FK_Clothes_FashionHouses" FromRole="Clothes" ToRole="FashionHouses" />
+          <NavigationProperty Name="ClothesInShop" Relationship="Self.FK_ClothesInShop_Clothes" FromRole="Clothes" ToRole="ClothesInShop" />
+        </EntityType>
+        <EntityType Name="ClothesInShop">
+          <Key>
+            <PropertyRef Name="CLSH_ID" />
+          </Key>
+          <Property Name="CLSH_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLSH_SH" Type="Int32" Nullable="false" />
+          <Property Name="CLSH_CL" Type="Int32" Nullable="false" />
+          <Property Name="CLSH_QTY" Type="Int32" Nullable="false" />
+          <Property Name="CLSH_COST" Type="Single" Nullable="false" />
+          <NavigationProperty Name="Clothes" Relationship="Self.FK_ClothesInShop_Clothes" FromRole="ClothesInShop" ToRole="Clothes" />
+          <NavigationProperty Name="ShopClothes" Relationship="Self.FK_ClothesInShop_ShopClothes" FromRole="ClothesInShop" ToRole="ShopClothes" />
+        </EntityType>
+        <EntityType Name="Designers">
+          <Key>
+            <PropertyRef Name="DES_ID" />
+          </Key>
+          <Property Name="DES_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DES_FULLNAME" Type="String" MaxLength="255" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DES_PASSPORT" Type="Int32" Nullable="false" />
+          <Property Name="DES_GENDER" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="DES_FH" Type="Int32" Nullable="false" />
+          <Property Name="DES_BIRTHDAY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Clothes" Relationship="Self.FK_Clothes_Designers" FromRole="Designers" ToRole="Clothes" />
+          <NavigationProperty Name="FashionHouses" Relationship="Self.FK_Designers_FashionHouses" FromRole="Designers" ToRole="FashionHouses" />
+        </EntityType>
+        <EntityType Name="Divisions">
+          <Key>
+            <PropertyRef Name="DIV_ID" />
+          </Key>
+          <Property Name="DIV_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DIV_FH" Type="Int32" Nullable="false" />
+          <Property Name="DIV_NAME" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="DIV_ADRESS" Type="String" MaxLength="255" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DIV_QTY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FashionHouses" Relationship="Self.FK_Divisions_FashionHouses" FromRole="Divisions" ToRole="FashionHouses" />
+        </EntityType>
+        <EntityType Name="FashionHouses">
+          <Key>
+            <PropertyRef Name="FH_ID" />
+          </Key>
+          <Property Name="FH_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FH_NAME" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="FH_ADRESS" Type="String" MaxLength="255" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Clothes" Relationship="Self.FK_Clothes_FashionHouses" FromRole="FashionHouses" ToRole="Clothes" />
+          <NavigationProperty Name="Designers" Relationship="Self.FK_Designers_FashionHouses" FromRole="FashionHouses" ToRole="Designers" />
+          <NavigationProperty Name="Divisions" Relationship="Self.FK_Divisions_FashionHouses" FromRole="FashionHouses" ToRole="Divisions" />
+          <NavigationProperty Name="Presidents" Relationship="Self.FK_Presidents_FashionHouses" FromRole="FashionHouses" ToRole="Presidents" />
+          <NavigationProperty Name="ShopClothes" Relationship="Self.FK_ShopClothes_FashionHouses" FromRole="FashionHouses" ToRole="ShopClothes" />
+        </EntityType>
+        <EntityType Name="Presidents">
+          <Key>
+            <PropertyRef Name="PR_ID" />
+          </Key>
+          <Property Name="PR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PR_PASSPORT" Type="Int32" Nullable="false" />
+          <Property Name="PR_FH" Type="Int32" Nullable="false" />
+          <Property Name="PR_FULLNAME" Type="String" MaxLength="255" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="FashionHouses" Relationship="Self.FK_Presidents_FashionHouses" FromRole="Presidents" ToRole="FashionHouses" />
+        </EntityType>
+        <EntityType Name="ShopClothes">
+          <Key>
+            <PropertyRef Name="SH_ID" />
+          </Key>
+          <Property Name="SH_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SH_ADRESS" Type="String" MaxLength="255" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="SH_QTY_EMP" Type="Int32" Nullable="false" />
+          <Property Name="SH_FH" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClothesInShop" Relationship="Self.FK_ClothesInShop_ShopClothes" FromRole="ShopClothes" ToRole="ClothesInShop" />
+          <NavigationProperty Name="FashionHouses" Relationship="Self.FK_ShopClothes_FashionHouses" FromRole="ShopClothes" ToRole="FashionHouses" />
+        </EntityType>
+        <Association Name="FK_Clothes_Designers">
+          <End Role="Designers" Type="Self.Designers" Multiplicity="1" />
+          <End Role="Clothes" Type="Self.Clothes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designers">
+              <PropertyRef Name="DES_ID" />
+            </Principal>
+            <Dependent Role="Clothes">
+              <PropertyRef Name="CL_DES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clothes_FashionHouses">
+          <End Role="FashionHouses" Type="Self.FashionHouses" Multiplicity="1" />
+          <End Role="Clothes" Type="Self.Clothes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FashionHouses">
+              <PropertyRef Name="FH_ID" />
+            </Principal>
+            <Dependent Role="Clothes">
+              <PropertyRef Name="CL_FH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClothesInShop_Clothes">
+          <End Role="Clothes" Type="Self.Clothes" Multiplicity="1" />
+          <End Role="ClothesInShop" Type="Self.ClothesInShop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clothes">
+              <PropertyRef Name="CL_ID" />
+            </Principal>
+            <Dependent Role="ClothesInShop">
+              <PropertyRef Name="CLSH_CL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClothesInShop_ShopClothes">
+          <End Role="ShopClothes" Type="Self.ShopClothes" Multiplicity="1" />
+          <End Role="ClothesInShop" Type="Self.ClothesInShop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShopClothes">
+              <PropertyRef Name="SH_ID" />
+            </Principal>
+            <Dependent Role="ClothesInShop">
+              <PropertyRef Name="CLSH_SH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Designers_FashionHouses">
+          <End Role="FashionHouses" Type="Self.FashionHouses" Multiplicity="1" />
+          <End Role="Designers" Type="Self.Designers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FashionHouses">
+              <PropertyRef Name="FH_ID" />
+            </Principal>
+            <Dependent Role="Designers">
+              <PropertyRef Name="DES_FH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Divisions_FashionHouses">
+          <End Role="FashionHouses" Type="Self.FashionHouses" Multiplicity="1" />
+          <End Role="Divisions" Type="Self.Divisions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FashionHouses">
+              <PropertyRef Name="FH_ID" />
+            </Principal>
+            <Dependent Role="Divisions">
+              <PropertyRef Name="DIV_FH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Presidents_FashionHouses">
+          <End Role="FashionHouses" Type="Self.FashionHouses" Multiplicity="1" />
+          <End Role="Presidents" Type="Self.Presidents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FashionHouses">
+              <PropertyRef Name="FH_ID" />
+            </Principal>
+            <Dependent Role="Presidents">
+              <PropertyRef Name="PR_FH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopClothes_FashionHouses">
+          <End Role="FashionHouses" Type="Self.FashionHouses" Multiplicity="1" />
+          <End Role="ShopClothes" Type="Self.ShopClothes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FashionHouses">
+              <PropertyRef Name="FH_ID" />
+            </Principal>
+            <Dependent Role="ShopClothes">
+              <PropertyRef Name="SH_FH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FashionHousesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clothes" EntityType="Self.Clothes" />
+          <EntitySet Name="ClothesInShop" EntityType="Self.ClothesInShop" />
+          <EntitySet Name="Designers" EntityType="Self.Designers" />
+          <EntitySet Name="Divisions" EntityType="Self.Divisions" />
+          <EntitySet Name="FashionHouses" EntityType="Self.FashionHouses" />
+          <EntitySet Name="Presidents" EntityType="Self.Presidents" />
+          <EntitySet Name="ShopClothes" EntityType="Self.ShopClothes" />
+          <AssociationSet Name="FK_Clothes_Designers" Association="Self.FK_Clothes_Designers">
+            <End Role="Designers" EntitySet="Designers" />
+            <End Role="Clothes" EntitySet="Clothes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clothes_FashionHouses" Association="Self.FK_Clothes_FashionHouses">
+            <End Role="FashionHouses" EntitySet="FashionHouses" />
+            <End Role="Clothes" EntitySet="Clothes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClothesInShop_Clothes" Association="Self.FK_ClothesInShop_Clothes">
+            <End Role="Clothes" EntitySet="Clothes" />
+            <End Role="ClothesInShop" EntitySet="ClothesInShop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClothesInShop_ShopClothes" Association="Self.FK_ClothesInShop_ShopClothes">
+            <End Role="ShopClothes" EntitySet="ShopClothes" />
+            <End Role="ClothesInShop" EntitySet="ClothesInShop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Designers_FashionHouses" Association="Self.FK_Designers_FashionHouses">
+            <End Role="FashionHouses" EntitySet="FashionHouses" />
+            <End Role="Designers" EntitySet="Designers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Divisions_FashionHouses" Association="Self.FK_Divisions_FashionHouses">
+            <End Role="FashionHouses" EntitySet="FashionHouses" />
+            <End Role="Divisions" EntitySet="Divisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Presidents_FashionHouses" Association="Self.FK_Presidents_FashionHouses">
+            <End Role="FashionHouses" EntitySet="FashionHouses" />
+            <End Role="Presidents" EntitySet="Presidents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopClothes_FashionHouses" Association="Self.FK_ShopClothes_FashionHouses">
+            <End Role="FashionHouses" EntitySet="FashionHouses" />
+            <End Role="ShopClothes" EntitySet="ShopClothes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FashionHousesModelStoreContainer" CdmEntityContainer="FashionHousesEntities">
+          <EntitySetMapping Name="Clothes">
+            <EntityTypeMapping TypeName="FashionHousesModel.Clothes">
+              <MappingFragment StoreEntitySet="Clothes">
+                <ScalarProperty Name="CL_ID" ColumnName="CL_ID" />
+                <ScalarProperty Name="CL_FH" ColumnName="CL_FH" />
+                <ScalarProperty Name="CL_DES" ColumnName="CL_DES" />
+                <ScalarProperty Name="CL_DESCRIPTION" ColumnName="CL_DESCRIPTION" />
+                <ScalarProperty Name="CL_CATEGORY" ColumnName="CL_CATEGORY" />
+                <ScalarProperty Name="CL_COLOR" ColumnName="CL_COLOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClothesInShop">
+            <EntityTypeMapping TypeName="FashionHousesModel.ClothesInShop">
+              <MappingFragment StoreEntitySet="ClothesInShop">
+                <ScalarProperty Name="CLSH_ID" ColumnName="CLSH_ID" />
+                <ScalarProperty Name="CLSH_SH" ColumnName="CLSH_SH" />
+                <ScalarProperty Name="CLSH_CL" ColumnName="CLSH_CL" />
+                <ScalarProperty Name="CLSH_QTY" ColumnName="CLSH_QTY" />
+                <ScalarProperty Name="CLSH_COST" ColumnName="CLSH_COST" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Designers">
+            <EntityTypeMapping TypeName="FashionHousesModel.Designers">
+              <MappingFragment StoreEntitySet="Designers">
+                <ScalarProperty Name="DES_ID" ColumnName="DES_ID" />
+                <ScalarProperty Name="DES_FULLNAME" ColumnName="DES_FULLNAME" />
+                <ScalarProperty Name="DES_PASSPORT" ColumnName="DES_PASSPORT" />
+                <ScalarProperty Name="DES_GENDER" ColumnName="DES_GENDER" />
+                <ScalarProperty Name="DES_FH" ColumnName="DES_FH" />
+                <ScalarProperty Name="DES_BIRTHDAY" ColumnName="DES_BIRTHDAY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Divisions">
+            <EntityTypeMapping TypeName="FashionHousesModel.Divisions">
+              <MappingFragment StoreEntitySet="Divisions">
+                <ScalarProperty Name="DIV_ID" ColumnName="DIV_ID" />
+                <ScalarProperty Name="DIV_FH" ColumnName="DIV_FH" />
+                <ScalarProperty Name="DIV_NAME" ColumnName="DIV_NAME" />
+                <ScalarProperty Name="DIV_ADRESS" ColumnName="DIV_ADRESS" />
+                <ScalarProperty Name="DIV_QTY" ColumnName="DIV_QTY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FashionHouses">
+            <EntityTypeMapping TypeName="FashionHousesModel.FashionHouses">
+              <MappingFragment StoreEntitySet="FashionHouses">
+                <ScalarProperty Name="FH_ID" ColumnName="FH_ID" />
+                <ScalarProperty Name="FH_NAME" ColumnName="FH_NAME" />
+                <ScalarProperty Name="FH_ADRESS" ColumnName="FH_ADRESS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Presidents">
+            <EntityTypeMapping TypeName="FashionHousesModel.Presidents">
+              <MappingFragment StoreEntitySet="Presidents">
+                <ScalarProperty Name="PR_ID" ColumnName="PR_ID" />
+                <ScalarProperty Name="PR_PASSPORT" ColumnName="PR_PASSPORT" />
+                <ScalarProperty Name="PR_FH" ColumnName="PR_FH" />
+                <ScalarProperty Name="PR_FULLNAME" ColumnName="PR_FULLNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopClothes">
+            <EntityTypeMapping TypeName="FashionHousesModel.ShopClothes">
+              <MappingFragment StoreEntitySet="ShopClothes">
+                <ScalarProperty Name="SH_ID" ColumnName="SH_ID" />
+                <ScalarProperty Name="SH_ADRESS" ColumnName="SH_ADRESS" />
+                <ScalarProperty Name="SH_QTY_EMP" ColumnName="SH_QTY_EMP" />
+                <ScalarProperty Name="SH_FH" ColumnName="SH_FH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
