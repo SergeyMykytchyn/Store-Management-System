@@ -43,8 +43,17 @@
             this.textBoxDES_CL = new System.Windows.Forms.TextBox();
             this.textBoxFH_CL = new System.Windows.Forms.TextBox();
             this.dataGridViewCL = new System.Windows.Forms.DataGridView();
+            this.cLIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLFHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.fashionHousesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cLDESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.designersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cLDESCRIPTIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLCATEGORYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLCOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fashionHousesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clothesInShopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clothesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageFH = new System.Windows.Forms.TabPage();
             this.comboBoxPR_FH = new System.Windows.Forms.ComboBox();
@@ -56,9 +65,8 @@
             this.btnDelFH = new System.Windows.Forms.Button();
             this.btnAddFH = new System.Windows.Forms.Button();
             this.dataGridViewFH = new System.Windows.Forms.DataGridView();
-            this.fashionHousesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.presidentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FH_President = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.presidentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fHNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fHADRESSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fHIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,15 +75,7 @@
             this.divisionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.presidentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shopClothesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLFHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cLDESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cLDESCRIPTIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLCATEGORYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLCOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.designersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fashionHousesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clothesInShopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fashionHousesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageCL.SuspendLayout();
@@ -85,8 +85,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.clothesBindingSource)).BeginInit();
             this.tabPageFH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.presidentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
@@ -233,13 +233,81 @@
             this.dataGridViewCL.TabIndex = 0;
             this.dataGridViewCL.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewCL_DataError);
             // 
+            // cLIDDataGridViewTextBoxColumn
+            // 
+            this.cLIDDataGridViewTextBoxColumn.DataPropertyName = "CL_ID";
+            this.cLIDDataGridViewTextBoxColumn.HeaderText = "CL_ID";
+            this.cLIDDataGridViewTextBoxColumn.Name = "cLIDDataGridViewTextBoxColumn";
+            this.cLIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cLFHDataGridViewTextBoxColumn
+            // 
+            this.cLFHDataGridViewTextBoxColumn.DataPropertyName = "CL_FH";
+            this.cLFHDataGridViewTextBoxColumn.DataSource = this.fashionHousesBindingSource;
+            this.cLFHDataGridViewTextBoxColumn.DisplayMember = "FH_NAME";
+            this.cLFHDataGridViewTextBoxColumn.HeaderText = "Дом Моди";
+            this.cLFHDataGridViewTextBoxColumn.Name = "cLFHDataGridViewTextBoxColumn";
+            this.cLFHDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cLFHDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cLFHDataGridViewTextBoxColumn.ValueMember = "FH_ID";
+            // 
             // fashionHousesBindingSource
             // 
             this.fashionHousesBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.FashionHouses);
             // 
+            // cLDESDataGridViewTextBoxColumn
+            // 
+            this.cLDESDataGridViewTextBoxColumn.DataPropertyName = "CL_DES";
+            this.cLDESDataGridViewTextBoxColumn.DataSource = this.designersBindingSource;
+            this.cLDESDataGridViewTextBoxColumn.DisplayMember = "DES_FULLNAME";
+            this.cLDESDataGridViewTextBoxColumn.HeaderText = "Дизайнер";
+            this.cLDESDataGridViewTextBoxColumn.Name = "cLDESDataGridViewTextBoxColumn";
+            this.cLDESDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cLDESDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cLDESDataGridViewTextBoxColumn.ValueMember = "DES_ID";
+            // 
             // designersBindingSource
             // 
             this.designersBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.Designers);
+            // 
+            // cLDESCRIPTIONDataGridViewTextBoxColumn
+            // 
+            this.cLDESCRIPTIONDataGridViewTextBoxColumn.DataPropertyName = "CL_DESCRIPTION";
+            this.cLDESCRIPTIONDataGridViewTextBoxColumn.HeaderText = "Опис";
+            this.cLDESCRIPTIONDataGridViewTextBoxColumn.Name = "cLDESCRIPTIONDataGridViewTextBoxColumn";
+            // 
+            // cLCATEGORYDataGridViewTextBoxColumn
+            // 
+            this.cLCATEGORYDataGridViewTextBoxColumn.DataPropertyName = "CL_CATEGORY";
+            this.cLCATEGORYDataGridViewTextBoxColumn.HeaderText = "Категорiя";
+            this.cLCATEGORYDataGridViewTextBoxColumn.Name = "cLCATEGORYDataGridViewTextBoxColumn";
+            // 
+            // cLCOLORDataGridViewTextBoxColumn
+            // 
+            this.cLCOLORDataGridViewTextBoxColumn.DataPropertyName = "CL_COLOR";
+            this.cLCOLORDataGridViewTextBoxColumn.HeaderText = "Колiр";
+            this.cLCOLORDataGridViewTextBoxColumn.Name = "cLCOLORDataGridViewTextBoxColumn";
+            // 
+            // designersDataGridViewTextBoxColumn
+            // 
+            this.designersDataGridViewTextBoxColumn.DataPropertyName = "Designers";
+            this.designersDataGridViewTextBoxColumn.HeaderText = "Designers";
+            this.designersDataGridViewTextBoxColumn.Name = "designersDataGridViewTextBoxColumn";
+            this.designersDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fashionHousesDataGridViewTextBoxColumn
+            // 
+            this.fashionHousesDataGridViewTextBoxColumn.DataPropertyName = "FashionHouses";
+            this.fashionHousesDataGridViewTextBoxColumn.HeaderText = "FashionHouses";
+            this.fashionHousesDataGridViewTextBoxColumn.Name = "fashionHousesDataGridViewTextBoxColumn";
+            this.fashionHousesDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // clothesInShopDataGridViewTextBoxColumn
+            // 
+            this.clothesInShopDataGridViewTextBoxColumn.DataPropertyName = "ClothesInShop";
+            this.clothesInShopDataGridViewTextBoxColumn.HeaderText = "ClothesInShop";
+            this.clothesInShopDataGridViewTextBoxColumn.Name = "clothesInShopDataGridViewTextBoxColumn";
+            this.clothesInShopDataGridViewTextBoxColumn.Visible = false;
             // 
             // clothesBindingSource
             // 
@@ -351,14 +419,7 @@
             this.dataGridViewFH.RowTemplate.Height = 24;
             this.dataGridViewFH.Size = new System.Drawing.Size(1054, 401);
             this.dataGridViewFH.TabIndex = 0;
-            // 
-            // fashionHousesBindingSource1
-            // 
-            this.fashionHousesBindingSource1.DataSource = typeof(ClassLibraryFashionHousesEF.FashionHouses);
-            // 
-            // presidentsBindingSource
-            // 
-            this.presidentsBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.Presidents);
+            this.dataGridViewFH.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewFH_DataError);
             // 
             // FH_President
             // 
@@ -368,6 +429,10 @@
             this.FH_President.HeaderText = "Президент";
             this.FH_President.Name = "FH_President";
             this.FH_President.ValueMember = "PR_FH";
+            // 
+            // presidentsBindingSource
+            // 
+            this.presidentsBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.Presidents);
             // 
             // fHNAMEDataGridViewTextBoxColumn
             // 
@@ -423,73 +488,9 @@
             this.shopClothesDataGridViewTextBoxColumn.Name = "shopClothesDataGridViewTextBoxColumn";
             this.shopClothesDataGridViewTextBoxColumn.Visible = false;
             // 
-            // cLIDDataGridViewTextBoxColumn
+            // fashionHousesBindingSource1
             // 
-            this.cLIDDataGridViewTextBoxColumn.DataPropertyName = "CL_ID";
-            this.cLIDDataGridViewTextBoxColumn.HeaderText = "CL_ID";
-            this.cLIDDataGridViewTextBoxColumn.Name = "cLIDDataGridViewTextBoxColumn";
-            this.cLIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // cLFHDataGridViewTextBoxColumn
-            // 
-            this.cLFHDataGridViewTextBoxColumn.DataPropertyName = "CL_FH";
-            this.cLFHDataGridViewTextBoxColumn.DataSource = this.fashionHousesBindingSource;
-            this.cLFHDataGridViewTextBoxColumn.DisplayMember = "FH_NAME";
-            this.cLFHDataGridViewTextBoxColumn.HeaderText = "Дом Моди";
-            this.cLFHDataGridViewTextBoxColumn.Name = "cLFHDataGridViewTextBoxColumn";
-            this.cLFHDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cLFHDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cLFHDataGridViewTextBoxColumn.ValueMember = "FH_ID";
-            // 
-            // cLDESDataGridViewTextBoxColumn
-            // 
-            this.cLDESDataGridViewTextBoxColumn.DataPropertyName = "CL_DES";
-            this.cLDESDataGridViewTextBoxColumn.DataSource = this.designersBindingSource;
-            this.cLDESDataGridViewTextBoxColumn.DisplayMember = "DES_FULLNAME";
-            this.cLDESDataGridViewTextBoxColumn.HeaderText = "Дизайнер";
-            this.cLDESDataGridViewTextBoxColumn.Name = "cLDESDataGridViewTextBoxColumn";
-            this.cLDESDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cLDESDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cLDESDataGridViewTextBoxColumn.ValueMember = "DES_ID";
-            // 
-            // cLDESCRIPTIONDataGridViewTextBoxColumn
-            // 
-            this.cLDESCRIPTIONDataGridViewTextBoxColumn.DataPropertyName = "CL_DESCRIPTION";
-            this.cLDESCRIPTIONDataGridViewTextBoxColumn.HeaderText = "Опис";
-            this.cLDESCRIPTIONDataGridViewTextBoxColumn.Name = "cLDESCRIPTIONDataGridViewTextBoxColumn";
-            // 
-            // cLCATEGORYDataGridViewTextBoxColumn
-            // 
-            this.cLCATEGORYDataGridViewTextBoxColumn.DataPropertyName = "CL_CATEGORY";
-            this.cLCATEGORYDataGridViewTextBoxColumn.HeaderText = "Категорiя";
-            this.cLCATEGORYDataGridViewTextBoxColumn.Name = "cLCATEGORYDataGridViewTextBoxColumn";
-            // 
-            // cLCOLORDataGridViewTextBoxColumn
-            // 
-            this.cLCOLORDataGridViewTextBoxColumn.DataPropertyName = "CL_COLOR";
-            this.cLCOLORDataGridViewTextBoxColumn.HeaderText = "Колiр";
-            this.cLCOLORDataGridViewTextBoxColumn.Name = "cLCOLORDataGridViewTextBoxColumn";
-            // 
-            // designersDataGridViewTextBoxColumn
-            // 
-            this.designersDataGridViewTextBoxColumn.DataPropertyName = "Designers";
-            this.designersDataGridViewTextBoxColumn.HeaderText = "Designers";
-            this.designersDataGridViewTextBoxColumn.Name = "designersDataGridViewTextBoxColumn";
-            this.designersDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fashionHousesDataGridViewTextBoxColumn
-            // 
-            this.fashionHousesDataGridViewTextBoxColumn.DataPropertyName = "FashionHouses";
-            this.fashionHousesDataGridViewTextBoxColumn.HeaderText = "FashionHouses";
-            this.fashionHousesDataGridViewTextBoxColumn.Name = "fashionHousesDataGridViewTextBoxColumn";
-            this.fashionHousesDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // clothesInShopDataGridViewTextBoxColumn
-            // 
-            this.clothesInShopDataGridViewTextBoxColumn.DataPropertyName = "ClothesInShop";
-            this.clothesInShopDataGridViewTextBoxColumn.HeaderText = "ClothesInShop";
-            this.clothesInShopDataGridViewTextBoxColumn.Name = "clothesInShopDataGridViewTextBoxColumn";
-            this.clothesInShopDataGridViewTextBoxColumn.Visible = false;
+            this.fashionHousesBindingSource1.DataSource = typeof(ClassLibraryFashionHousesEF.FashionHouses);
             // 
             // MainForm
             // 
@@ -512,8 +513,8 @@
             this.tabPageFH.ResumeLayout(false);
             this.tabPageFH.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.presidentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

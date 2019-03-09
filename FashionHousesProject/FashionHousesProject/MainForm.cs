@@ -54,5 +54,10 @@ namespace FashionHousesProject
         {
             return;
         }
+
+        private void dataGridViewFH_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            return;
+        }
     }
 }
