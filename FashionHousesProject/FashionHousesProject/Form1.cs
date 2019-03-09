@@ -21,7 +21,16 @@ namespace FashionHousesProject
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+
+        private void tabControlMain_Selected(object sender, TabControlEventArgs e)
+        {
+            if(e.TabPage == tabPageCL)
+            {
+              
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
         {
             ctx = new ClassLibraryFashionHousesEF.FashionHousesEntities();
 
@@ -32,6 +41,18 @@ namespace FashionHousesProject
             ctx.FashionHouses.Load();
             ctx.Presidents.Load();
             ctx.ShopClothes.Load();
+
+            clothesBindingSource.DataSource = ctx.Clothes.Local.ToBindingList();
+            fashionHousesBindingSource.DataSource = ctx.FashionHouses.Local.ToBindingList();
+            designersBindingSource.DataSource = ctx.Designers.Local.ToBindingList();
+
+            fashionHousesBindingSource1.DataSource = ctx.FashionHouses.Local.ToBindingList();
+            presidentsBindingSource.DataSource = ctx.Presidents.Local.ToBindingList();
+        }
+
+        private void dataGridViewCL_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            return;
         }
     }
 }
