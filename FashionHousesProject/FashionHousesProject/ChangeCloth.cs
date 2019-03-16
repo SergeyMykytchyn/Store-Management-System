@@ -78,16 +78,6 @@ namespace FashionHousesProject
 
         private void ChangeCloth_Load(object sender, EventArgs e)
         {
-            //ctx = new ClassLibraryFashionHousesEF.FashionHousesEntities();
-
-            //ctx.Clothes.Load();
-            //ctx.ClothesInShop.Load();
-            //ctx.Designers.Load();
-            //ctx.Divisions.Load();
-            //ctx.FashionHouses.Load();
-            //ctx.Presidents.Load();
-            //ctx.ShopClothes.Load();
-
             fashionHousesBindingSource.DataSource = ctx.FashionHouses.Local.ToBindingList();
             designersBindingSource.DataSource = ctx.Designers.Local.ToBindingList();
         }

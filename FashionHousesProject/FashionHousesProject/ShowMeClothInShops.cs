@@ -35,7 +35,8 @@ namespace FashionHousesProject
                                SH_ADRESS = c.SH_ADRESS,
                                SH_QTY_EMP = c.SH_QTY_EMP,
                                CLSH_QTY = t.CLSH_QTY,
-                               CLSH_COST = t.CLSH_COST
+                               CLSH_COST = t.CLSH_COST,
+                               CLSH_ID = t.CLSH_ID
                            };
             var FinalTable = from c in ctx.FashionHouses
                              join t in Newtable on c.FH_ID equals t.SH_FH
@@ -46,6 +47,7 @@ namespace FashionHousesProject
                                  SH_QTY_EMP = t.SH_QTY_EMP,
                                  CLSH_QTY = t.CLSH_QTY,
                                  CLSH_COST = t.CLSH_COST,
+                                 CLSH_ID = t.CLSH_ID,
                                  SH_ID = t.SH_ID
                              };
 
@@ -56,6 +58,7 @@ namespace FashionHousesProject
             dataGridView_CLSH.Columns["CLSH_QTY"].HeaderText = "Кiлькiсть Одягу у магазинi";
             dataGridView_CLSH.Columns["CLSH_COST"].HeaderText = "Вартiсть одягу у магазинi";
             dataGridView_CLSH.Columns["SH_ID"].Visible = false;
+            dataGridView_CLSH.Columns["CLSH_ID"].Visible = false;
         }
 
         private void ShowMeClothInShops_Load(object sender, EventArgs e)
@@ -79,7 +82,7 @@ namespace FashionHousesProject
             {
                 var row = dataGridView_CLSH.CurrentCell.OwningRow;
                 int SH_ID = Convert.ToInt32(row.Cells["SH_ID"].Value);
-
+                
                 var ToRemove = (from c in ctx.ClothesInShop where c.CLSH_CL == c.CLSH_CL && c.CLSH_SH == SH_ID select c).First();
                 ctx.ClothesInShop.Remove(ToRemove);
                 ctx.SaveChanges();
@@ -89,6 +92,22 @@ namespace FashionHousesProject
             catch
             {
                 return;
+            }
+        }
+
+        private void btn_CHANGE_CLSH_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int CLSH_ID = Convert.ToInt32(dataGridView_CLSH.CurrentRow.Cells["CLSH_ID"].Value);
+                ChangeCLSHForm clsh = new ChangeCLSHForm(ctx, CLSH_ID);
+                clsh.ShowDialog();
+
+                ShowClothesInShops();
+            }
+            catch
+            {
+
             }
         }
     }

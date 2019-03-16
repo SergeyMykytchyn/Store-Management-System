@@ -30,6 +30,7 @@
         {
             this.dataGridView_CLSH = new System.Windows.Forms.DataGridView();
             this.btn_DEL_CL_FROM_SH = new System.Windows.Forms.Button();
+            this.btn_CHANGE_CLSH = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_CLSH)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,11 +54,22 @@
             this.btn_DEL_CL_FROM_SH.UseVisualStyleBackColor = true;
             this.btn_DEL_CL_FROM_SH.Click += new System.EventHandler(this.btn_DEL_CL_FROM_SH_Click);
             // 
+            // btn_CHANGE_CLSH
+            // 
+            this.btn_CHANGE_CLSH.Location = new System.Drawing.Point(201, 376);
+            this.btn_CHANGE_CLSH.Name = "btn_CHANGE_CLSH";
+            this.btn_CHANGE_CLSH.Size = new System.Drawing.Size(142, 62);
+            this.btn_CHANGE_CLSH.TabIndex = 2;
+            this.btn_CHANGE_CLSH.Text = "Змiнити Одяг у магазинi";
+            this.btn_CHANGE_CLSH.UseVisualStyleBackColor = true;
+            this.btn_CHANGE_CLSH.Click += new System.EventHandler(this.btn_CHANGE_CLSH_Click);
+            // 
             // ShowMeClothInShops
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_CHANGE_CLSH);
             this.Controls.Add(this.btn_DEL_CL_FROM_SH);
             this.Controls.Add(this.dataGridView_CLSH);
             this.Name = "ShowMeClothInShops";
@@ -71,5 +83,6 @@
         #endregion
         private System.Windows.Forms.DataGridView dataGridView_CLSH;
         private System.Windows.Forms.Button btn_DEL_CL_FROM_SH;
+        private System.Windows.Forms.Button btn_CHANGE_CLSH;
     }
 }

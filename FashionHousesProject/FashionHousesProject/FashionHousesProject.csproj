@@ -66,11 +66,53 @@
     <Compile Include="AddClothToShopForm.Designer.cs">
       <DependentUpon>AddClothToShopForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddDivisionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDivisionForm.Designer.cs">
+      <DependentUpon>AddDivisionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddFashionHouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFashionHouse.Designer.cs">
+      <DependentUpon>AddFashionHouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddShopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddShopForm.Designer.cs">
+      <DependentUpon>AddShopForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangeCloth.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChangeCloth.Designer.cs">
       <DependentUpon>ChangeCloth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeCLSHForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeCLSHForm.Designer.cs">
+      <DependentUpon>ChangeCLSHForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeDivision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeDivision.Designer.cs">
+      <DependentUpon>ChangeDivision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeFashionHouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeFashionHouse.Designer.cs">
+      <DependentUpon>ChangeFashionHouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeShopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeShopForm.Designer.cs">
+      <DependentUpon>ChangeShopForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -80,6 +122,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShowDivisionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowDivisionsForm.Designer.cs">
+      <DependentUpon>ShowDivisionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowFashionHouseShops.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowFashionHouseShops.Designer.cs">
+      <DependentUpon>ShowFashionHouseShops.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShowMeClothInShops.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,8 +146,29 @@
     <EmbeddedResource Include="AddClothToShopForm.resx">
       <DependentUpon>AddClothToShopForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddDivisionForm.resx">
+      <DependentUpon>AddDivisionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddFashionHouse.resx">
+      <DependentUpon>AddFashionHouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddShopForm.resx">
+      <DependentUpon>AddShopForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangeCloth.resx">
       <DependentUpon>ChangeCloth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeCLSHForm.resx">
+      <DependentUpon>ChangeCLSHForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeDivision.resx">
+      <DependentUpon>ChangeDivision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeFashionHouse.resx">
+      <DependentUpon>ChangeFashionHouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeShopForm.resx">
+      <DependentUpon>ChangeShopForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -107,12 +182,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ShowDivisionsForm.resx">
+      <DependentUpon>ShowDivisionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowFashionHouseShops.resx">
+      <DependentUpon>ShowFashionHouseShops.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ShowMeClothInShops.resx">
       <DependentUpon>ShowMeClothInShops.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassLibraryFashionHousesEF.Clothes1.datasource" />
+    <None Include="ClassLibraryFashionHousesEF.Clothes1.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="ClassLibraryFashionHousesEF.ClothesInShop.datasource" />
     <None Include="ClassLibraryFashionHousesEF.Designers.datasource" />
+    <None Include="ClassLibraryFashionHousesEF.Divisions.datasource" />
     <None Include="ClassLibraryFashionHousesEF.FashionHouses.datasource" />
     <None Include="ClassLibraryFashionHousesEF.Presidents.datasource" />
     <None Include="ClassLibraryFashionHousesEF.ShopClothes.datasource" />

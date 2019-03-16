@@ -32,6 +32,7 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageCL = new System.Windows.Forms.TabPage();
+            this.btn_Change_CL = new System.Windows.Forms.Button();
             this.btn_add_CL_to_SH = new System.Windows.Forms.Button();
             this.btn_CL_Filter = new System.Windows.Forms.Button();
             this.label_CL_COLOR = new System.Windows.Forms.Label();
@@ -40,32 +41,40 @@
             this.label_CL_DES = new System.Windows.Forms.Label();
             this.label_CL_FH = new System.Windows.Forms.Label();
             this.comboBox_CL_COLOR = new System.Windows.Forms.ComboBox();
-            this.clothesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clothesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox_CL_CAT = new System.Windows.Forms.ComboBox();
+            this.clothesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox_CL_DES = new System.Windows.Forms.ComboBox();
-            this.designersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.designersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox_CL_FH = new System.Windows.Forms.ComboBox();
-            this.fashionHousesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fashionHousesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.btnDelCL = new System.Windows.Forms.Button();
             this.btnAddCL = new System.Windows.Forms.Button();
             this.dataGridViewCL = new System.Windows.Forms.DataGridView();
             this.cLIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cLFHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.fashionHousesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cLDESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.designersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cLDESCRIPTIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cLCATEGORYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cLCOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.designersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fashionHousesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clothesInShopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clothesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageFH = new System.Windows.Forms.TabPage();
+            this.btn_SHOW_SH = new System.Windows.Forms.Button();
+            this.btn_CHANGE_FH = new System.Windows.Forms.Button();
             this.button_FH_Filter = new System.Windows.Forms.Button();
             this.label_FH_PR = new System.Windows.Forms.Label();
             this.label_FH_ADRESS = new System.Windows.Forms.Label();
             this.comboBox_FH_PR = new System.Windows.Forms.ComboBox();
             this.presidentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox_FH_ADRESS = new System.Windows.Forms.ComboBox();
+            this.fashionHousesBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox_FH_FH = new System.Windows.Forms.ComboBox();
+            this.fashionHousesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.label_FH_FH = new System.Windows.Forms.Label();
             this.btnDelFH = new System.Windows.Forms.Button();
             this.btnAddFH = new System.Windows.Forms.Button();
@@ -80,46 +89,45 @@
             this.presidentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shopClothesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fashionHousesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.clothesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.clothesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.fashionHousesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.designersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.btn_Change_CL = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageCL.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clothesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.designersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCL)).BeginInit();
-            this.tabPageFH.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.presidentsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clothesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clothesBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.designersBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.designersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clothesBindingSource)).BeginInit();
+            this.tabPageFH.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.presidentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(0, 1);
+            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox.Location = new System.Drawing.Point(1, -3);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(1080, 182);
+            this.pictureBox.Size = new System.Drawing.Size(1080, 196);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             // 
             // tabControlMain
             // 
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlMain.Controls.Add(this.tabPageCL);
             this.tabControlMain.Controls.Add(this.tabPageFH);
-            this.tabControlMain.Location = new System.Drawing.Point(5, 189);
+            this.tabControlMain.Location = new System.Drawing.Point(5, 199);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(1075, 553);
+            this.tabControlMain.Size = new System.Drawing.Size(1076, 553);
             this.tabControlMain.TabIndex = 1;
-            this.tabControlMain.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControlMain_Selected);
             // 
             // tabPageCL
             // 
@@ -141,16 +149,28 @@
             this.tabPageCL.Location = new System.Drawing.Point(4, 25);
             this.tabPageCL.Name = "tabPageCL";
             this.tabPageCL.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCL.Size = new System.Drawing.Size(1067, 524);
+            this.tabPageCL.Size = new System.Drawing.Size(1068, 524);
             this.tabPageCL.TabIndex = 0;
             this.tabPageCL.Text = "Одяг";
             this.tabPageCL.UseVisualStyleBackColor = true;
             // 
+            // btn_Change_CL
+            // 
+            this.btn_Change_CL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Change_CL.Location = new System.Drawing.Point(928, 341);
+            this.btn_Change_CL.Name = "btn_Change_CL";
+            this.btn_Change_CL.Size = new System.Drawing.Size(133, 100);
+            this.btn_Change_CL.TabIndex = 22;
+            this.btn_Change_CL.Text = "Змiнити Одяг";
+            this.btn_Change_CL.UseVisualStyleBackColor = true;
+            this.btn_Change_CL.Click += new System.EventHandler(this.btn_Change_CL_Click);
+            // 
             // btn_add_CL_to_SH
             // 
-            this.btn_add_CL_to_SH.Location = new System.Drawing.Point(940, 243);
+            this.btn_add_CL_to_SH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_add_CL_to_SH.Location = new System.Drawing.Point(928, 227);
             this.btn_add_CL_to_SH.Name = "btn_add_CL_to_SH";
-            this.btn_add_CL_to_SH.Size = new System.Drawing.Size(120, 108);
+            this.btn_add_CL_to_SH.Size = new System.Drawing.Size(133, 108);
             this.btn_add_CL_to_SH.TabIndex = 21;
             this.btn_add_CL_to_SH.Text = "Додати одяг до магазину";
             this.btn_add_CL_to_SH.UseVisualStyleBackColor = true;
@@ -158,9 +178,10 @@
             // 
             // btn_CL_Filter
             // 
-            this.btn_CL_Filter.Location = new System.Drawing.Point(940, 32);
+            this.btn_CL_Filter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_CL_Filter.Location = new System.Drawing.Point(928, 22);
             this.btn_CL_Filter.Name = "btn_CL_Filter";
-            this.btn_CL_Filter.Size = new System.Drawing.Size(120, 62);
+            this.btn_CL_Filter.Size = new System.Drawing.Size(133, 88);
             this.btn_CL_Filter.TabIndex = 20;
             this.btn_CL_Filter.Text = "Вiдфiльтрувати";
             this.btn_CL_Filter.UseVisualStyleBackColor = true;
@@ -168,8 +189,10 @@
             // 
             // label_CL_COLOR
             // 
-            this.label_CL_COLOR.Location = new System.Drawing.Point(766, 27);
+            this.label_CL_COLOR.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label_CL_COLOR.Location = new System.Drawing.Point(767, 27);
             this.label_CL_COLOR.Name = "label_CL_COLOR";
+            this.label_CL_COLOR.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.label_CL_COLOR.Size = new System.Drawing.Size(155, 23);
             this.label_CL_COLOR.TabIndex = 19;
             this.label_CL_COLOR.Text = "Колiр";
@@ -177,7 +200,8 @@
             // 
             // label_CL_CAT
             // 
-            this.label_CL_CAT.Location = new System.Drawing.Point(561, 27);
+            this.label_CL_CAT.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label_CL_CAT.Location = new System.Drawing.Point(562, 27);
             this.label_CL_CAT.Name = "label_CL_CAT";
             this.label_CL_CAT.Size = new System.Drawing.Size(155, 23);
             this.label_CL_CAT.TabIndex = 18;
@@ -194,7 +218,8 @@
             // 
             // label_CL_DES
             // 
-            this.label_CL_DES.Location = new System.Drawing.Point(356, 27);
+            this.label_CL_DES.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label_CL_DES.Location = new System.Drawing.Point(357, 27);
             this.label_CL_DES.Name = "label_CL_DES";
             this.label_CL_DES.Size = new System.Drawing.Size(155, 23);
             this.label_CL_DES.TabIndex = 16;
@@ -203,8 +228,10 @@
             // 
             // label_CL_FH
             // 
-            this.label_CL_FH.Location = new System.Drawing.Point(153, 22);
+            this.label_CL_FH.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label_CL_FH.Location = new System.Drawing.Point(154, 22);
             this.label_CL_FH.Name = "label_CL_FH";
+            this.label_CL_FH.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.label_CL_FH.Size = new System.Drawing.Size(155, 23);
             this.label_CL_FH.TabIndex = 15;
             this.label_CL_FH.Text = "Дом Моди";
@@ -212,65 +239,77 @@
             // 
             // comboBox_CL_COLOR
             // 
+            this.comboBox_CL_COLOR.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.comboBox_CL_COLOR.DataSource = this.clothesBindingSource1;
             this.comboBox_CL_COLOR.DisplayMember = "CL_COLOR";
             this.comboBox_CL_COLOR.FormattingEnabled = true;
-            this.comboBox_CL_COLOR.Location = new System.Drawing.Point(766, 70);
+            this.comboBox_CL_COLOR.Location = new System.Drawing.Point(767, 70);
             this.comboBox_CL_COLOR.Name = "comboBox_CL_COLOR";
             this.comboBox_CL_COLOR.Size = new System.Drawing.Size(155, 24);
             this.comboBox_CL_COLOR.TabIndex = 14;
             this.comboBox_CL_COLOR.ValueMember = "CL_ID";
             // 
-            // clothesBindingSource
+            // clothesBindingSource1
             // 
-            this.clothesBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.Clothes);
+            this.clothesBindingSource1.DataSource = typeof(ClassLibraryFashionHousesEF.Clothes);
             // 
             // comboBox_CL_CAT
             // 
+            this.comboBox_CL_CAT.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.comboBox_CL_CAT.DataSource = this.clothesBindingSource2;
             this.comboBox_CL_CAT.DisplayMember = "CL_CATEGORY";
             this.comboBox_CL_CAT.FormattingEnabled = true;
-            this.comboBox_CL_CAT.Location = new System.Drawing.Point(561, 70);
+            this.comboBox_CL_CAT.Location = new System.Drawing.Point(562, 70);
+            this.comboBox_CL_CAT.Margin = new System.Windows.Forms.Padding(100, 3, 100, 3);
             this.comboBox_CL_CAT.Name = "comboBox_CL_CAT";
             this.comboBox_CL_CAT.Size = new System.Drawing.Size(155, 24);
             this.comboBox_CL_CAT.TabIndex = 13;
             this.comboBox_CL_CAT.ValueMember = "CL_ID";
             // 
+            // clothesBindingSource2
+            // 
+            this.clothesBindingSource2.DataSource = typeof(ClassLibraryFashionHousesEF.Clothes);
+            // 
             // comboBox_CL_DES
             // 
+            this.comboBox_CL_DES.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox_CL_DES.DataSource = this.designersBindingSource1;
             this.comboBox_CL_DES.DisplayMember = "DES_FULLNAME";
             this.comboBox_CL_DES.FormattingEnabled = true;
             this.comboBox_CL_DES.Location = new System.Drawing.Point(356, 70);
+            this.comboBox_CL_DES.Margin = new System.Windows.Forms.Padding(1000);
             this.comboBox_CL_DES.Name = "comboBox_CL_DES";
-            this.comboBox_CL_DES.Size = new System.Drawing.Size(155, 24);
+            this.comboBox_CL_DES.Size = new System.Drawing.Size(156, 24);
             this.comboBox_CL_DES.TabIndex = 12;
             this.comboBox_CL_DES.ValueMember = "DES_ID";
             // 
-            // designersBindingSource
+            // designersBindingSource1
             // 
-            this.designersBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.Designers);
+            this.designersBindingSource1.DataSource = typeof(ClassLibraryFashionHousesEF.Designers);
             // 
             // comboBox_CL_FH
             // 
+            this.comboBox_CL_FH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox_CL_FH.DataSource = this.fashionHousesBindingSource2;
             this.comboBox_CL_FH.DisplayMember = "FH_NAME";
             this.comboBox_CL_FH.FormattingEnabled = true;
             this.comboBox_CL_FH.Location = new System.Drawing.Point(153, 70);
+            this.comboBox_CL_FH.Margin = new System.Windows.Forms.Padding(1000);
             this.comboBox_CL_FH.Name = "comboBox_CL_FH";
-            this.comboBox_CL_FH.Size = new System.Drawing.Size(155, 24);
+            this.comboBox_CL_FH.Size = new System.Drawing.Size(156, 24);
             this.comboBox_CL_FH.TabIndex = 11;
             this.comboBox_CL_FH.ValueMember = "FH_ID";
             // 
-            // fashionHousesBindingSource
+            // fashionHousesBindingSource2
             // 
-            this.fashionHousesBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.FashionHouses);
+            this.fashionHousesBindingSource2.DataSource = typeof(ClassLibraryFashionHousesEF.FashionHouses);
             // 
             // btnDelCL
             // 
-            this.btnDelCL.Location = new System.Drawing.Point(940, 116);
+            this.btnDelCL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelCL.Location = new System.Drawing.Point(928, 116);
             this.btnDelCL.Name = "btnDelCL";
-            this.btnDelCL.Size = new System.Drawing.Size(120, 105);
+            this.btnDelCL.Size = new System.Drawing.Size(133, 105);
             this.btnDelCL.TabIndex = 10;
             this.btnDelCL.Text = "Видалити Одяг";
             this.btnDelCL.UseVisualStyleBackColor = true;
@@ -278,6 +317,7 @@
             // 
             // btnAddCL
             // 
+            this.btnAddCL.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnAddCL.Location = new System.Drawing.Point(6, 6);
             this.btnAddCL.Name = "btnAddCL";
             this.btnAddCL.Size = new System.Drawing.Size(120, 105);
@@ -288,6 +328,7 @@
             // 
             // dataGridViewCL
             // 
+            this.dataGridViewCL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewCL.AutoGenerateColumns = false;
             this.dataGridViewCL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCL.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -305,7 +346,7 @@
             this.dataGridViewCL.Name = "dataGridViewCL";
             this.dataGridViewCL.ReadOnly = true;
             this.dataGridViewCL.RowTemplate.Height = 24;
-            this.dataGridViewCL.Size = new System.Drawing.Size(915, 401);
+            this.dataGridViewCL.Size = new System.Drawing.Size(916, 401);
             this.dataGridViewCL.TabIndex = 0;
             this.dataGridViewCL.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCL_CellDoubleClick);
             this.dataGridViewCL.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewCL_DataError);
@@ -315,6 +356,7 @@
             this.cLIDDataGridViewTextBoxColumn.DataPropertyName = "CL_ID";
             this.cLIDDataGridViewTextBoxColumn.HeaderText = "CL_ID";
             this.cLIDDataGridViewTextBoxColumn.Name = "cLIDDataGridViewTextBoxColumn";
+            this.cLIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.cLIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // cLFHDataGridViewTextBoxColumn
@@ -324,9 +366,14 @@
             this.cLFHDataGridViewTextBoxColumn.DisplayMember = "FH_NAME";
             this.cLFHDataGridViewTextBoxColumn.HeaderText = "Дом Моди";
             this.cLFHDataGridViewTextBoxColumn.Name = "cLFHDataGridViewTextBoxColumn";
+            this.cLFHDataGridViewTextBoxColumn.ReadOnly = true;
             this.cLFHDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.cLFHDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.cLFHDataGridViewTextBoxColumn.ValueMember = "FH_ID";
+            // 
+            // fashionHousesBindingSource
+            // 
+            this.fashionHousesBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.FashionHouses);
             // 
             // cLDESDataGridViewTextBoxColumn
             // 
@@ -335,33 +382,42 @@
             this.cLDESDataGridViewTextBoxColumn.DisplayMember = "DES_FULLNAME";
             this.cLDESDataGridViewTextBoxColumn.HeaderText = "Дизайнер";
             this.cLDESDataGridViewTextBoxColumn.Name = "cLDESDataGridViewTextBoxColumn";
+            this.cLDESDataGridViewTextBoxColumn.ReadOnly = true;
             this.cLDESDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.cLDESDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.cLDESDataGridViewTextBoxColumn.ValueMember = "DES_ID";
+            // 
+            // designersBindingSource
+            // 
+            this.designersBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.Designers);
             // 
             // cLDESCRIPTIONDataGridViewTextBoxColumn
             // 
             this.cLDESCRIPTIONDataGridViewTextBoxColumn.DataPropertyName = "CL_DESCRIPTION";
             this.cLDESCRIPTIONDataGridViewTextBoxColumn.HeaderText = "Опис";
             this.cLDESCRIPTIONDataGridViewTextBoxColumn.Name = "cLDESCRIPTIONDataGridViewTextBoxColumn";
+            this.cLDESCRIPTIONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cLCATEGORYDataGridViewTextBoxColumn
             // 
             this.cLCATEGORYDataGridViewTextBoxColumn.DataPropertyName = "CL_CATEGORY";
             this.cLCATEGORYDataGridViewTextBoxColumn.HeaderText = "Категорiя";
             this.cLCATEGORYDataGridViewTextBoxColumn.Name = "cLCATEGORYDataGridViewTextBoxColumn";
+            this.cLCATEGORYDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cLCOLORDataGridViewTextBoxColumn
             // 
             this.cLCOLORDataGridViewTextBoxColumn.DataPropertyName = "CL_COLOR";
             this.cLCOLORDataGridViewTextBoxColumn.HeaderText = "Колiр";
             this.cLCOLORDataGridViewTextBoxColumn.Name = "cLCOLORDataGridViewTextBoxColumn";
+            this.cLCOLORDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // designersDataGridViewTextBoxColumn
             // 
             this.designersDataGridViewTextBoxColumn.DataPropertyName = "Designers";
             this.designersDataGridViewTextBoxColumn.HeaderText = "Designers";
             this.designersDataGridViewTextBoxColumn.Name = "designersDataGridViewTextBoxColumn";
+            this.designersDataGridViewTextBoxColumn.ReadOnly = true;
             this.designersDataGridViewTextBoxColumn.Visible = false;
             // 
             // fashionHousesDataGridViewTextBoxColumn
@@ -369,6 +425,7 @@
             this.fashionHousesDataGridViewTextBoxColumn.DataPropertyName = "FashionHouses";
             this.fashionHousesDataGridViewTextBoxColumn.HeaderText = "FashionHouses";
             this.fashionHousesDataGridViewTextBoxColumn.Name = "fashionHousesDataGridViewTextBoxColumn";
+            this.fashionHousesDataGridViewTextBoxColumn.ReadOnly = true;
             this.fashionHousesDataGridViewTextBoxColumn.Visible = false;
             // 
             // clothesInShopDataGridViewTextBoxColumn
@@ -376,10 +433,17 @@
             this.clothesInShopDataGridViewTextBoxColumn.DataPropertyName = "ClothesInShop";
             this.clothesInShopDataGridViewTextBoxColumn.HeaderText = "ClothesInShop";
             this.clothesInShopDataGridViewTextBoxColumn.Name = "clothesInShopDataGridViewTextBoxColumn";
+            this.clothesInShopDataGridViewTextBoxColumn.ReadOnly = true;
             this.clothesInShopDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // clothesBindingSource
+            // 
+            this.clothesBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.Clothes);
             // 
             // tabPageFH
             // 
+            this.tabPageFH.Controls.Add(this.btn_SHOW_SH);
+            this.tabPageFH.Controls.Add(this.btn_CHANGE_FH);
             this.tabPageFH.Controls.Add(this.button_FH_Filter);
             this.tabPageFH.Controls.Add(this.label_FH_PR);
             this.tabPageFH.Controls.Add(this.label_FH_ADRESS);
@@ -397,6 +461,26 @@
             this.tabPageFH.TabIndex = 1;
             this.tabPageFH.Text = "Дома Моди";
             this.tabPageFH.UseVisualStyleBackColor = true;
+            // 
+            // btn_SHOW_SH
+            // 
+            this.btn_SHOW_SH.Location = new System.Drawing.Point(899, 369);
+            this.btn_SHOW_SH.Name = "btn_SHOW_SH";
+            this.btn_SHOW_SH.Size = new System.Drawing.Size(142, 77);
+            this.btn_SHOW_SH.TabIndex = 17;
+            this.btn_SHOW_SH.Text = "Магазини Дому Моди";
+            this.btn_SHOW_SH.UseVisualStyleBackColor = true;
+            this.btn_SHOW_SH.Click += new System.EventHandler(this.btn_SHOW_SH_Click);
+            // 
+            // btn_CHANGE_FH
+            // 
+            this.btn_CHANGE_FH.Location = new System.Drawing.Point(899, 252);
+            this.btn_CHANGE_FH.Name = "btn_CHANGE_FH";
+            this.btn_CHANGE_FH.Size = new System.Drawing.Size(142, 96);
+            this.btn_CHANGE_FH.TabIndex = 16;
+            this.btn_CHANGE_FH.Text = "Змiнити Дом Моди";
+            this.btn_CHANGE_FH.UseVisualStyleBackColor = true;
+            this.btn_CHANGE_FH.Click += new System.EventHandler(this.btn_CHANGE_FH_Click);
             // 
             // button_FH_Filter
             // 
@@ -443,7 +527,7 @@
             // 
             // comboBox_FH_ADRESS
             // 
-            this.comboBox_FH_ADRESS.DataSource = this.fashionHousesBindingSource;
+            this.comboBox_FH_ADRESS.DataSource = this.fashionHousesBindingSource4;
             this.comboBox_FH_ADRESS.DisplayMember = "FH_ADRESS";
             this.comboBox_FH_ADRESS.FormattingEnabled = true;
             this.comboBox_FH_ADRESS.Location = new System.Drawing.Point(421, 76);
@@ -452,9 +536,13 @@
             this.comboBox_FH_ADRESS.TabIndex = 11;
             this.comboBox_FH_ADRESS.ValueMember = "FH_ID";
             // 
+            // fashionHousesBindingSource4
+            // 
+            this.fashionHousesBindingSource4.DataSource = typeof(ClassLibraryFashionHousesEF.FashionHouses);
+            // 
             // comboBox_FH_FH
             // 
-            this.comboBox_FH_FH.DataSource = this.fashionHousesBindingSource;
+            this.comboBox_FH_FH.DataSource = this.fashionHousesBindingSource3;
             this.comboBox_FH_FH.DisplayMember = "FH_NAME";
             this.comboBox_FH_FH.FormattingEnabled = true;
             this.comboBox_FH_FH.Location = new System.Drawing.Point(190, 76);
@@ -462,6 +550,10 @@
             this.comboBox_FH_FH.Size = new System.Drawing.Size(137, 24);
             this.comboBox_FH_FH.TabIndex = 10;
             this.comboBox_FH_FH.ValueMember = "FH_ID";
+            // 
+            // fashionHousesBindingSource3
+            // 
+            this.fashionHousesBindingSource3.DataSource = typeof(ClassLibraryFashionHousesEF.FashionHouses);
             // 
             // label_FH_FH
             // 
@@ -480,6 +572,7 @@
             this.btnDelFH.TabIndex = 2;
             this.btnDelFH.Text = "Видалити Дом Моди";
             this.btnDelFH.UseVisualStyleBackColor = true;
+            this.btnDelFH.Click += new System.EventHandler(this.btnDelFH_Click);
             // 
             // btnAddFH
             // 
@@ -489,6 +582,7 @@
             this.btnAddFH.TabIndex = 1;
             this.btnAddFH.Text = "Додати Дом Моди";
             this.btnAddFH.UseVisualStyleBackColor = true;
+            this.btnAddFH.Click += new System.EventHandler(this.btnAddFH_Click);
             // 
             // dataGridViewFH
             // 
@@ -511,6 +605,7 @@
             this.dataGridViewFH.RowTemplate.Height = 24;
             this.dataGridViewFH.Size = new System.Drawing.Size(878, 401);
             this.dataGridViewFH.TabIndex = 0;
+            this.dataGridViewFH.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFH_CellDoubleClick);
             this.dataGridViewFH.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewFH_DataError);
             // 
             // FH_President
@@ -520,6 +615,7 @@
             this.FH_President.DisplayMember = "PR_FULLNAME";
             this.FH_President.HeaderText = "Президент";
             this.FH_President.Name = "FH_President";
+            this.FH_President.ReadOnly = true;
             this.FH_President.ValueMember = "PR_FH";
             // 
             // fHNAMEDataGridViewTextBoxColumn
@@ -527,18 +623,21 @@
             this.fHNAMEDataGridViewTextBoxColumn.DataPropertyName = "FH_NAME";
             this.fHNAMEDataGridViewTextBoxColumn.HeaderText = "Дом Моди";
             this.fHNAMEDataGridViewTextBoxColumn.Name = "fHNAMEDataGridViewTextBoxColumn";
+            this.fHNAMEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fHADRESSDataGridViewTextBoxColumn
             // 
             this.fHADRESSDataGridViewTextBoxColumn.DataPropertyName = "FH_ADRESS";
             this.fHADRESSDataGridViewTextBoxColumn.HeaderText = "Адреса";
             this.fHADRESSDataGridViewTextBoxColumn.Name = "fHADRESSDataGridViewTextBoxColumn";
+            this.fHADRESSDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fHIDDataGridViewTextBoxColumn
             // 
             this.fHIDDataGridViewTextBoxColumn.DataPropertyName = "FH_ID";
             this.fHIDDataGridViewTextBoxColumn.HeaderText = "FH_ID";
             this.fHIDDataGridViewTextBoxColumn.Name = "fHIDDataGridViewTextBoxColumn";
+            this.fHIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.fHIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // clothesDataGridViewTextBoxColumn
@@ -546,6 +645,7 @@
             this.clothesDataGridViewTextBoxColumn.DataPropertyName = "Clothes";
             this.clothesDataGridViewTextBoxColumn.HeaderText = "Clothes";
             this.clothesDataGridViewTextBoxColumn.Name = "clothesDataGridViewTextBoxColumn";
+            this.clothesDataGridViewTextBoxColumn.ReadOnly = true;
             this.clothesDataGridViewTextBoxColumn.Visible = false;
             // 
             // designersDataGridViewTextBoxColumn1
@@ -553,6 +653,7 @@
             this.designersDataGridViewTextBoxColumn1.DataPropertyName = "Designers";
             this.designersDataGridViewTextBoxColumn1.HeaderText = "Designers";
             this.designersDataGridViewTextBoxColumn1.Name = "designersDataGridViewTextBoxColumn1";
+            this.designersDataGridViewTextBoxColumn1.ReadOnly = true;
             this.designersDataGridViewTextBoxColumn1.Visible = false;
             // 
             // divisionsDataGridViewTextBoxColumn
@@ -560,6 +661,7 @@
             this.divisionsDataGridViewTextBoxColumn.DataPropertyName = "Divisions";
             this.divisionsDataGridViewTextBoxColumn.HeaderText = "Divisions";
             this.divisionsDataGridViewTextBoxColumn.Name = "divisionsDataGridViewTextBoxColumn";
+            this.divisionsDataGridViewTextBoxColumn.ReadOnly = true;
             this.divisionsDataGridViewTextBoxColumn.Visible = false;
             // 
             // presidentsDataGridViewTextBoxColumn
@@ -567,6 +669,7 @@
             this.presidentsDataGridViewTextBoxColumn.DataPropertyName = "Presidents";
             this.presidentsDataGridViewTextBoxColumn.HeaderText = "Presidents";
             this.presidentsDataGridViewTextBoxColumn.Name = "presidentsDataGridViewTextBoxColumn";
+            this.presidentsDataGridViewTextBoxColumn.ReadOnly = true;
             this.presidentsDataGridViewTextBoxColumn.Visible = false;
             // 
             // shopClothesDataGridViewTextBoxColumn
@@ -574,45 +677,22 @@
             this.shopClothesDataGridViewTextBoxColumn.DataPropertyName = "ShopClothes";
             this.shopClothesDataGridViewTextBoxColumn.HeaderText = "ShopClothes";
             this.shopClothesDataGridViewTextBoxColumn.Name = "shopClothesDataGridViewTextBoxColumn";
+            this.shopClothesDataGridViewTextBoxColumn.ReadOnly = true;
             this.shopClothesDataGridViewTextBoxColumn.Visible = false;
             // 
             // fashionHousesBindingSource1
             // 
             this.fashionHousesBindingSource1.DataSource = typeof(ClassLibraryFashionHousesEF.FashionHouses);
             // 
-            // clothesBindingSource1
-            // 
-            this.clothesBindingSource1.DataSource = typeof(ClassLibraryFashionHousesEF.Clothes);
-            // 
-            // clothesBindingSource2
-            // 
-            this.clothesBindingSource2.DataSource = typeof(ClassLibraryFashionHousesEF.Clothes);
-            // 
-            // fashionHousesBindingSource2
-            // 
-            this.fashionHousesBindingSource2.DataSource = typeof(ClassLibraryFashionHousesEF.FashionHouses);
-            // 
-            // designersBindingSource1
-            // 
-            this.designersBindingSource1.DataSource = typeof(ClassLibraryFashionHousesEF.Designers);
-            // 
-            // btn_Change_CL
-            // 
-            this.btn_Change_CL.Location = new System.Drawing.Point(940, 374);
-            this.btn_Change_CL.Name = "btn_Change_CL";
-            this.btn_Change_CL.Size = new System.Drawing.Size(120, 100);
-            this.btn_Change_CL.TabIndex = 22;
-            this.btn_Change_CL.Text = "Змiнити Одяг";
-            this.btn_Change_CL.UseVisualStyleBackColor = true;
-            this.btn_Change_CL.Click += new System.EventHandler(this.btn_Change_CL_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1081, 743);
+            this.ClientSize = new System.Drawing.Size(1082, 753);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.pictureBox);
+            this.MaximumSize = new System.Drawing.Size(1100, 800);
+            this.MinimumSize = new System.Drawing.Size(1100, 800);
             this.Name = "MainForm";
             this.Text = "Магазин Одягу";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -620,19 +700,21 @@
             this.tabControlMain.ResumeLayout(false);
             this.tabPageCL.ResumeLayout(false);
             this.tabPageCL.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clothesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.designersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clothesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clothesBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.designersBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.designersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clothesBindingSource)).EndInit();
             this.tabPageFH.ResumeLayout(false);
             this.tabPageFH.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.presidentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clothesBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clothesBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.designersBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -695,6 +777,10 @@
         private System.Windows.Forms.BindingSource designersBindingSource1;
         private System.Windows.Forms.BindingSource fashionHousesBindingSource2;
         private System.Windows.Forms.Button btn_Change_CL;
+        private System.Windows.Forms.BindingSource fashionHousesBindingSource4;
+        private System.Windows.Forms.BindingSource fashionHousesBindingSource3;
+        private System.Windows.Forms.Button btn_CHANGE_FH;
+        private System.Windows.Forms.Button btn_SHOW_SH;
     }
 }
 

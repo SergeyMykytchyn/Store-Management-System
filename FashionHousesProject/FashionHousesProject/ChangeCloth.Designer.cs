@@ -35,12 +35,12 @@
             this.label_COLOR_TO_CHANGE = new System.Windows.Forms.Label();
             this.label_CAT_TO_CHANGE = new System.Windows.Forms.Label();
             this.comboBox_FH_TO_CHANGE = new System.Windows.Forms.ComboBox();
+            this.fashionHousesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox_DES_TO_CHANGE = new System.Windows.Forms.ComboBox();
+            this.designersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox_DESCRIPTION_TO_CHANGE = new System.Windows.Forms.TextBox();
             this.textBox_COLOR_TO_CHANGE = new System.Windows.Forms.TextBox();
             this.textBox_CAT_TO_CHANGE = new System.Windows.Forms.TextBox();
-            this.fashionHousesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.designersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btn_CL_CHANGE = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.designersBindingSource)).BeginInit();
@@ -102,6 +102,10 @@
             this.comboBox_FH_TO_CHANGE.TabIndex = 5;
             this.comboBox_FH_TO_CHANGE.ValueMember = "FH_ID";
             // 
+            // fashionHousesBindingSource
+            // 
+            this.fashionHousesBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.FashionHouses);
+            // 
             // comboBox_DES_TO_CHANGE
             // 
             this.comboBox_DES_TO_CHANGE.DataSource = this.designersBindingSource;
@@ -112,6 +116,10 @@
             this.comboBox_DES_TO_CHANGE.Size = new System.Drawing.Size(121, 24);
             this.comboBox_DES_TO_CHANGE.TabIndex = 6;
             this.comboBox_DES_TO_CHANGE.ValueMember = "DES_ID";
+            // 
+            // designersBindingSource
+            // 
+            this.designersBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.Designers);
             // 
             // textBox_DESCRIPTION_TO_CHANGE
             // 
@@ -134,14 +142,6 @@
             this.textBox_CAT_TO_CHANGE.Size = new System.Drawing.Size(121, 22);
             this.textBox_CAT_TO_CHANGE.TabIndex = 9;
             // 
-            // fashionHousesBindingSource
-            // 
-            this.fashionHousesBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.FashionHouses);
-            // 
-            // designersBindingSource
-            // 
-            this.designersBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.Designers);
-            // 
             // btn_CL_CHANGE
             // 
             this.btn_CL_CHANGE.Location = new System.Drawing.Point(107, 297);
@@ -156,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(337, 363);
             this.Controls.Add(this.btn_CL_CHANGE);
             this.Controls.Add(this.textBox_CAT_TO_CHANGE);
             this.Controls.Add(this.textBox_COLOR_TO_CHANGE);
@@ -168,8 +168,10 @@
             this.Controls.Add(this.label_DESCRIPTION_TO_CHANGE);
             this.Controls.Add(this.label_DES_TO_CHANGE);
             this.Controls.Add(this.label_FH_TO_CHANGE);
+            this.MaximumSize = new System.Drawing.Size(355, 410);
+            this.MinimumSize = new System.Drawing.Size(355, 410);
             this.Name = "ChangeCloth";
-            this.Text = "ChangeCloth";
+            this.Text = "Змiнити Одяг";
             this.Load += new System.EventHandler(this.ChangeCloth_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.designersBindingSource)).EndInit();

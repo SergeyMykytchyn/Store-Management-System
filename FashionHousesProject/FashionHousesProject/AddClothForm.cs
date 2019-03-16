@@ -37,6 +37,13 @@ namespace FashionHousesProject
             clothesBindingSource.DataSource = ctx.Clothes.Local.ToBindingList();
             clothesBindingSource1.DataSource = ctx.Clothes.Local.ToBindingList();
             designersBindingSource.DataSource = ctx.Designers.Local.ToBindingList();
+
+            UpdateDataGridViewDES();
+        }
+
+        private void UpdateDataGridViewDES()
+        {
+            dataGridViewDES.DataSource = (from c in ctx.Designers select c).ToList();
         }
 
         private void dataGridViewDES_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -50,7 +57,7 @@ namespace FashionHousesProject
             string name = comboBox_ENTER_DES_NAME.Text;
             var table = (from c in ctx.Designers where c.DES_FULLNAME == name select c).ToList();
             if (table.Count == 0)
-                dataGridViewDES.DataSource = ctx.Designers.Local.ToBindingList();
+                UpdateDataGridViewDES();
             else
                 dataGridViewDES.DataSource = table;
         }

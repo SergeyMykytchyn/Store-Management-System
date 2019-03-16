@@ -30,19 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView_SH_CL = new System.Windows.Forms.DataGridView();
+            this.sHIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sHADRESSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sHQTYEMPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sHFHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.fashionHousesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clothesInShopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fashionHousesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shopClothesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label_CLSH_QTY = new System.Windows.Forms.Label();
             this.label_CLSH_COST = new System.Windows.Forms.Label();
             this.textBox_CLSH_QTY = new System.Windows.Forms.TextBox();
             this.textBox_CLSH_COST = new System.Windows.Forms.TextBox();
             this.btn_add_CL_to_SH = new System.Windows.Forms.Button();
-            this.sHIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sHADRESSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sHQTYEMPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sHFHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.clothesInShopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fashionHousesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_SH_CL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fashionHousesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shopClothesBindingSource)).BeginInit();
@@ -68,9 +68,59 @@
             this.dataGridView_SH_CL.TabIndex = 0;
             this.dataGridView_SH_CL.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_SH_CL_DataError);
             // 
+            // sHIDDataGridViewTextBoxColumn
+            // 
+            this.sHIDDataGridViewTextBoxColumn.DataPropertyName = "SH_ID";
+            this.sHIDDataGridViewTextBoxColumn.HeaderText = "SH_ID";
+            this.sHIDDataGridViewTextBoxColumn.Name = "sHIDDataGridViewTextBoxColumn";
+            this.sHIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sHIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // sHADRESSDataGridViewTextBoxColumn
+            // 
+            this.sHADRESSDataGridViewTextBoxColumn.DataPropertyName = "SH_ADRESS";
+            this.sHADRESSDataGridViewTextBoxColumn.HeaderText = "Адреса Магазину";
+            this.sHADRESSDataGridViewTextBoxColumn.Name = "sHADRESSDataGridViewTextBoxColumn";
+            this.sHADRESSDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sHQTYEMPDataGridViewTextBoxColumn
+            // 
+            this.sHQTYEMPDataGridViewTextBoxColumn.DataPropertyName = "SH_QTY_EMP";
+            this.sHQTYEMPDataGridViewTextBoxColumn.HeaderText = "Кiлькiсть працiвникiв";
+            this.sHQTYEMPDataGridViewTextBoxColumn.Name = "sHQTYEMPDataGridViewTextBoxColumn";
+            this.sHQTYEMPDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sHFHDataGridViewTextBoxColumn
+            // 
+            this.sHFHDataGridViewTextBoxColumn.DataPropertyName = "SH_FH";
+            this.sHFHDataGridViewTextBoxColumn.DataSource = this.fashionHousesBindingSource;
+            this.sHFHDataGridViewTextBoxColumn.DisplayMember = "FH_NAME";
+            this.sHFHDataGridViewTextBoxColumn.HeaderText = "Дом Моди";
+            this.sHFHDataGridViewTextBoxColumn.Name = "sHFHDataGridViewTextBoxColumn";
+            this.sHFHDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sHFHDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.sHFHDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.sHFHDataGridViewTextBoxColumn.ValueMember = "FH_ID";
+            // 
             // fashionHousesBindingSource
             // 
             this.fashionHousesBindingSource.DataSource = typeof(ClassLibraryFashionHousesEF.FashionHouses);
+            // 
+            // clothesInShopDataGridViewTextBoxColumn
+            // 
+            this.clothesInShopDataGridViewTextBoxColumn.DataPropertyName = "ClothesInShop";
+            this.clothesInShopDataGridViewTextBoxColumn.HeaderText = "ClothesInShop";
+            this.clothesInShopDataGridViewTextBoxColumn.Name = "clothesInShopDataGridViewTextBoxColumn";
+            this.clothesInShopDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clothesInShopDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fashionHousesDataGridViewTextBoxColumn
+            // 
+            this.fashionHousesDataGridViewTextBoxColumn.DataPropertyName = "FashionHouses";
+            this.fashionHousesDataGridViewTextBoxColumn.HeaderText = "FashionHouses";
+            this.fashionHousesDataGridViewTextBoxColumn.Name = "fashionHousesDataGridViewTextBoxColumn";
+            this.fashionHousesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fashionHousesDataGridViewTextBoxColumn.Visible = false;
             // 
             // shopClothesBindingSource
             // 
@@ -118,61 +168,19 @@
             this.btn_add_CL_to_SH.UseVisualStyleBackColor = true;
             this.btn_add_CL_to_SH.Click += new System.EventHandler(this.btn_add_CL_to_SH_Click);
             // 
-            // sHIDDataGridViewTextBoxColumn
-            // 
-            this.sHIDDataGridViewTextBoxColumn.DataPropertyName = "SH_ID";
-            this.sHIDDataGridViewTextBoxColumn.HeaderText = "SH_ID";
-            this.sHIDDataGridViewTextBoxColumn.Name = "sHIDDataGridViewTextBoxColumn";
-            this.sHIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // sHADRESSDataGridViewTextBoxColumn
-            // 
-            this.sHADRESSDataGridViewTextBoxColumn.DataPropertyName = "SH_ADRESS";
-            this.sHADRESSDataGridViewTextBoxColumn.HeaderText = "Адреса Магазину";
-            this.sHADRESSDataGridViewTextBoxColumn.Name = "sHADRESSDataGridViewTextBoxColumn";
-            // 
-            // sHQTYEMPDataGridViewTextBoxColumn
-            // 
-            this.sHQTYEMPDataGridViewTextBoxColumn.DataPropertyName = "SH_QTY_EMP";
-            this.sHQTYEMPDataGridViewTextBoxColumn.HeaderText = "Кiлькiсть працiвникiв";
-            this.sHQTYEMPDataGridViewTextBoxColumn.Name = "sHQTYEMPDataGridViewTextBoxColumn";
-            // 
-            // sHFHDataGridViewTextBoxColumn
-            // 
-            this.sHFHDataGridViewTextBoxColumn.DataPropertyName = "SH_FH";
-            this.sHFHDataGridViewTextBoxColumn.DataSource = this.fashionHousesBindingSource;
-            this.sHFHDataGridViewTextBoxColumn.DisplayMember = "FH_NAME";
-            this.sHFHDataGridViewTextBoxColumn.HeaderText = "Дом Моди";
-            this.sHFHDataGridViewTextBoxColumn.Name = "sHFHDataGridViewTextBoxColumn";
-            this.sHFHDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.sHFHDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.sHFHDataGridViewTextBoxColumn.ValueMember = "FH_ID";
-            // 
-            // clothesInShopDataGridViewTextBoxColumn
-            // 
-            this.clothesInShopDataGridViewTextBoxColumn.DataPropertyName = "ClothesInShop";
-            this.clothesInShopDataGridViewTextBoxColumn.HeaderText = "ClothesInShop";
-            this.clothesInShopDataGridViewTextBoxColumn.Name = "clothesInShopDataGridViewTextBoxColumn";
-            this.clothesInShopDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fashionHousesDataGridViewTextBoxColumn
-            // 
-            this.fashionHousesDataGridViewTextBoxColumn.DataPropertyName = "FashionHouses";
-            this.fashionHousesDataGridViewTextBoxColumn.HeaderText = "FashionHouses";
-            this.fashionHousesDataGridViewTextBoxColumn.Name = "fashionHousesDataGridViewTextBoxColumn";
-            this.fashionHousesDataGridViewTextBoxColumn.Visible = false;
-            // 
             // AddClothToShopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(812, 313);
             this.Controls.Add(this.btn_add_CL_to_SH);
             this.Controls.Add(this.textBox_CLSH_COST);
             this.Controls.Add(this.textBox_CLSH_QTY);
             this.Controls.Add(this.label_CLSH_COST);
             this.Controls.Add(this.label_CLSH_QTY);
             this.Controls.Add(this.dataGridView_SH_CL);
+            this.MaximumSize = new System.Drawing.Size(830, 360);
+            this.MinimumSize = new System.Drawing.Size(830, 360);
             this.Name = "AddClothToShopForm";
             this.Text = "Додати Одяг до магазину";
             this.Load += new System.EventHandler(this.AddClothToShop_Load);

@@ -21,15 +21,6 @@ namespace FashionHousesProject
             InitializeComponent();
         }
 
-
-        private void tabControlMain_Selected(object sender, TabControlEventArgs e)
-        {
-            if(e.TabPage == tabPageCL)
-            {
-              
-            }
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             ctx = new ClassLibraryFashionHousesEF.FashionHousesEntities();
@@ -48,9 +39,14 @@ namespace FashionHousesProject
             fashionHousesBindingSource.DataSource = ctx.FashionHouses.Local.ToBindingList();
             fashionHousesBindingSource1.DataSource = ctx.FashionHouses.Local.ToBindingList();
             fashionHousesBindingSource2.DataSource = ctx.FashionHouses.Local.ToBindingList();
+            fashionHousesBindingSource3.DataSource = ctx.FashionHouses.Local.ToBindingList();
+            fashionHousesBindingSource4.DataSource = ctx.FashionHouses.Local.ToBindingList();
             designersBindingSource.DataSource = ctx.Designers.Local.ToBindingList();
             designersBindingSource1.DataSource = ctx.Designers.Local.ToBindingList();
             presidentsBindingSource.DataSource = ctx.Presidents.Local.ToBindingList();
+
+            UpdateDataGridViewCL();
+            UpdateDataGridViewFH();
         }
 
         private void dataGridViewCL_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -217,9 +213,103 @@ namespace FashionHousesProject
             }
         }
 
-        private void Update_CL_Table()
+        private void UpdateDataGridViewFH()
+        {
+            dataGridViewFH.DataSource = (from c in ctx.FashionHouses select c).ToList();
+        }
+
+        private void UpdateDataGridViewCL()
         {
             dataGridViewCL.DataSource = (from c in ctx.Clothes select c).ToList();
+        }
+
+        private void btnAddFH_Click(object sender, EventArgs e)
+        {
+            AddFashionHouse fh_form = new AddFashionHouse(ctx);
+            fh_form.ShowDialog();
+
+            UpdateDataGridViewFH();
+        }
+
+        private void btnDelFH_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int FH_ID = Convert.ToInt32(dataGridViewFH.CurrentRow.Cells["fHIDDataGridViewTextBoxColumn"].Value);
+
+                var FHToRemove = ctx.FashionHouses.SingleOrDefault(x => x.FH_ID == FH_ID);
+                var PRToRemove = ctx.Presidents.SingleOrDefault(x => x.PR_FH == FH_ID);
+                var DesToRemove = (from c in ctx.Designers where c.DES_FH == FH_ID select c).ToList();
+                var DivToRemove = (from c in ctx.Divisions where c.DIV_FH == FH_ID select c).ToList();
+                var CLToRemove = (from c in ctx.Clothes where c.CL_FH == FH_ID select c).ToList();
+                var CL_IDsToRemove = (from c in ctx.Clothes where c.CL_FH == FH_ID select c.CL_ID).ToList();
+                var CLSHToRemove = (from c in ctx.ClothesInShop join cl in CL_IDsToRemove on c.CLSH_CL equals cl select c).ToList();
+                var SHToRemove = (from c in ctx.ShopClothes where c.SH_FH == FH_ID select c).ToList();
+
+                foreach (var sh in SHToRemove)
+                    ctx.ShopClothes.Remove(sh);
+                foreach (var clsh in CLSHToRemove)
+                    ctx.ClothesInShop.Remove(clsh);
+                foreach (var cl in CLToRemove)
+                    ctx.Clothes.Remove(cl);
+                foreach (var div in DivToRemove)
+                    ctx.Divisions.Remove(div);
+                foreach (var des in DesToRemove)
+                    ctx.Designers.Remove(des);
+                ctx.Presidents.Remove(PRToRemove);
+                ctx.FashionHouses.Remove(FHToRemove);
+
+                ctx.SaveChanges();
+                UpdateDataGridViewFH();
+                UpdateDataGridViewCL();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void dataGridViewFH_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int FH_ID = Convert.ToInt32(dataGridViewFH.CurrentRow.Cells["fHIDDataGridViewTextBoxColumn"].Value);
+
+            ShowDivisionsForm df = new ShowDivisionsForm(ctx, FH_ID);
+            df.ShowDialog();
+        }
+
+        private void btn_CHANGE_FH_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int FH_ID = Convert.ToInt32(dataGridViewFH.CurrentRow.Cells["fHIDDataGridViewTextBoxColumn"].Value);
+
+                ChangeFashionHouse chfh = new ChangeFashionHouse(ctx, FH_ID);
+                chfh.ShowDialog();
+                UpdateDataGridViewCL();
+                UpdateDataGridViewFH();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void btn_SHOW_SH_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int FH_ID = Convert.ToInt32(dataGridViewFH.CurrentRow.Cells["fHIDDataGridViewTextBoxColumn"].Value);
+
+                ShowFashionHouseShops fhsh = new ShowFashionHouseShops(ctx, FH_ID);
+                fhsh.ShowDialog();
+
+                UpdateDataGridViewCL();
+                UpdateDataGridViewFH();
+            }
+            catch
+            {
+
+            }
         }
     }
 }
