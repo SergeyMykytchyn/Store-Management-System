@@ -68,10 +68,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(782, 453);
             this.Controls.Add(this.btn_CHANGE_CLSH);
             this.Controls.Add(this.btn_DEL_CL_FROM_SH);
             this.Controls.Add(this.dataGridView_CLSH);
+            this.MaximumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "ShowMeClothInShops";
             this.Text = "Одяг у магазинах";
             this.Load += new System.EventHandler(this.ShowMeClothInShops_Load);

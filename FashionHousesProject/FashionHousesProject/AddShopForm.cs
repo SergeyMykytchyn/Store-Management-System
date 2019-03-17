@@ -22,9 +22,9 @@ namespace FashionHousesProject
             this.FH_ID = FH_ID;
         }
 
-        private bool CheckForDuplicates(string SH_ADRESS)
+        private bool CheckForDuplicates(string SH_ADRESS, int FH_ID)
         {
-            return (from c in ctx.ShopClothes where c.SH_ADRESS == SH_ADRESS select c.SH_ID).Any();
+            return (from c in ctx.ShopClothes where c.SH_ADRESS == SH_ADRESS && c.SH_FH == FH_ID select c.SH_ID).Any();
         }
 
         private void btn_ADD_SH_Click(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace FashionHousesProject
                 return;
             }
 
-            if(CheckForDuplicates(SH_ADRESS))
+            if(CheckForDuplicates(SH_ADRESS, FH_ID))
             {
                 MessageBox.Show("Магазин за такою самою адресою вже існує, магазин не додано", "Повiдомлення");
                 return;
@@ -53,7 +53,7 @@ namespace FashionHousesProject
             ctx.ShopClothes.Add(sh);
             ctx.SaveChanges();
 
-            MessageBox.Show("Иагазин успiшно додано", "Повiдомлення");
+            MessageBox.Show("Магазин успiшно додано", "Повiдомлення");
         }
     }
 }

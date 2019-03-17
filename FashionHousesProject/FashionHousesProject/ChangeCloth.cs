@@ -34,14 +34,24 @@ namespace FashionHousesProject
             if (CL_CATEGORY_ == String.Empty)
                 CL_CATEGORY_ = this.CL_CATEGORY;
 
-            if(comboBox_FH_TO_CHANGE.SelectedIndex < 0 || comboBox_DES_TO_CHANGE.SelectedIndex < 0)
+            if((comboBox_FH_TO_CHANGE.SelectedIndex < 0 && comboBox_FH_TO_CHANGE.Text != String.Empty ) 
+                || (comboBox_DES_TO_CHANGE.SelectedIndex < 0 && comboBox_DES_TO_CHANGE.Text != String.Empty))
             {
                 MessageBox.Show("Ви не вибрали Дом моди або Дизайнера, одяг не змiнено", "Повiдомлення");
                 return;
             }
 
-            int CL_FH_ = Convert.ToInt32(comboBox_FH_TO_CHANGE.SelectedValue.ToString());
-            int CL_DES_ = Convert.ToInt32(comboBox_DES_TO_CHANGE.SelectedValue.ToString());
+            int CL_FH_, CL_DES_;
+
+            if (comboBox_FH_TO_CHANGE.Text != String.Empty)
+                CL_FH_ = Convert.ToInt32(comboBox_FH_TO_CHANGE.SelectedValue.ToString());
+            else
+                CL_FH_ = CL_FH;
+
+            if (comboBox_DES_TO_CHANGE.Text != String.Empty)
+                CL_DES_ = Convert.ToInt32(comboBox_DES_TO_CHANGE.SelectedValue.ToString());
+            else
+                CL_DES_ = CL_DES;
 
             if (this.CL_FH != CL_FH_)
             {

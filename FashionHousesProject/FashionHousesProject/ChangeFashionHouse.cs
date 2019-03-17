@@ -22,9 +22,18 @@ namespace FashionHousesProject
             this.FH_ID = FH_ID;
         }
 
-        private void ChangeFashionHouse_Load(object sender, EventArgs e)
+        private bool CheckForDuplicates(string FH_NAME, int PR_PASSPORT)
         {
+            bool result;
 
+            result = (from c in ctx.FashionHouses where c.FH_NAME == FH_NAME select c).Any();
+            if (result)
+                return result;
+            result = (from c in ctx.Presidents where c.PR_PASSPORT == PR_PASSPORT select c).Any();
+            if (result)
+                return result;
+
+            return false;
         }
 
         private void btn_FH_CHANGE_Click(object sender, EventArgs e)
@@ -40,6 +49,11 @@ namespace FashionHousesProject
                 return;
             }
 
+            if(CheckForDuplicates(FH_NAME, PR_PASSPORT))
+            {
+                MessageBox.Show("Такий дом моди або президент вже iснують, дом моди не переiменовано", "Повiдомлення");
+                return;
+            }
      
             var FHToChange = (from c in ctx.FashionHouses where c.FH_ID == FH_ID select c).First();
             var PRToChange = (from c in ctx.Presidents where c.PR_FH == FH_ID select c).First();

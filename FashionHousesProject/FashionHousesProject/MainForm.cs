@@ -41,12 +41,21 @@ namespace FashionHousesProject
             fashionHousesBindingSource2.DataSource = ctx.FashionHouses.Local.ToBindingList();
             fashionHousesBindingSource3.DataSource = ctx.FashionHouses.Local.ToBindingList();
             fashionHousesBindingSource4.DataSource = ctx.FashionHouses.Local.ToBindingList();
+            fashionHousesBindingSource5.DataSource = ctx.FashionHouses.Local.ToBindingList();
+            fashionHousesBindingSource6.DataSource = ctx.FashionHouses.Local.ToBindingList();
             designersBindingSource.DataSource = ctx.Designers.Local.ToBindingList();
             designersBindingSource1.DataSource = ctx.Designers.Local.ToBindingList();
+            designersBindingSource2.DataSource = ctx.Designers.Local.ToBindingList();
+            designersBindingSource3.DataSource = ctx.Designers.Local.ToBindingList();
+            designersBindingSource4.DataSource = ctx.Designers.Local.ToBindingList();
+            designersBindingSource5.DataSource = ctx.Designers.Local.ToBindingList();
+            designersBindingSource6.DataSource = ctx.Designers.Local.ToBindingList();
             presidentsBindingSource.DataSource = ctx.Presidents.Local.ToBindingList();
+            presidentsBindingSource1.DataSource = ctx.Presidents.Local.ToBindingList();
 
             UpdateDataGridViewCL();
             UpdateDataGridViewFH();
+            UpdateDataGridViewDES();
         }
 
         private void dataGridViewCL_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -77,12 +86,23 @@ namespace FashionHousesProject
             return (from c in ctx.Designers where c.DES_FULLNAME == DES_NAME select c.DES_ID).ToList();
         }
 
+        private bool FHexists(string FH_NAME)
+        {
+            return (from c in ctx.FashionHouses where c.FH_NAME == FH_NAME select c.FH_ID).Any();
+        }
         private void btn_CL_Filter_Click(object sender, EventArgs e)
         {
             string CL_FH_NAME = comboBox_CL_FH.Text;
             string CL_DES_NAME = comboBox_CL_DES.Text;
             string CL_CAT = comboBox_CL_CAT.Text;
             string CL_COLOR = comboBox_CL_COLOR.Text;
+
+            if (!FHexists(CL_FH_NAME) && CL_FH_NAME != String.Empty)
+            {
+                List<ClassLibraryFashionHousesEF.Clothes> empList = new List<ClassLibraryFashionHousesEF.Clothes>();
+                dataGridViewCL.DataSource = empList;
+                return;
+            }
 
             var table = from c in ctx.Clothes select c;
 
@@ -205,7 +225,7 @@ namespace FashionHousesProject
                 ChangeCloth cgcl = new ChangeCloth(CL_ID, CLtoChange.CL_DES, CLtoChange.CL_FH, CLtoChange.CL_DESCRIPTION, CLtoChange.CL_COLOR, CLtoChange.CL_CATEGORY, ref ctx);
                 cgcl.ShowDialog();
 
-                dataGridViewCL.DataSource = (from c in ctx.Clothes select c).ToList();
+                UpdateDataGridViewCL();
             }
             catch
             {
@@ -304,6 +324,125 @@ namespace FashionHousesProject
                 fhsh.ShowDialog();
 
                 UpdateDataGridViewCL();
+                UpdateDataGridViewFH();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void UpdateDataGridViewDES()
+        {
+            dataGridViewDES.DataSource = (from c in ctx.Designers select c).ToList();
+        }
+
+        private void btn_FILTER_Click(object sender, EventArgs e)
+        {
+            string DES_NAME = comboBox_DES_NAME.Text;
+            string DES_GENDER = comboBox_DES_GENDER.Text;
+            string DES_FH_NAME = comboBox_DES_FH.Text;
+            string DES_BIRTHDAY = comboBox_DES_BIRTHDAY.Text;
+            int DES_PASSPORT;
+
+            if (!FHexists(DES_FH_NAME) && DES_FH_NAME != String.Empty)
+            {
+                List<ClassLibraryFashionHousesEF.Designers> empList = new List<ClassLibraryFashionHousesEF.Designers>();
+                dataGridViewDES.DataSource = empList;
+                return;
+            }
+
+            if (!Int32.TryParse(comboBox_DES_PASSPORT.Text, out DES_PASSPORT) && comboBox_DES_PASSPORT.Text != String.Empty)
+            {
+                List<ClassLibraryFashionHousesEF.Designers> empList = new List<ClassLibraryFashionHousesEF.Designers>();
+                dataGridViewDES.DataSource = empList;
+                return;
+            }
+
+            var table = from c in ctx.Designers select c;
+
+            if (DES_NAME != String.Empty)
+                table = from t in table where t.DES_FULLNAME == DES_NAME select t;
+
+            if (DES_GENDER != String.Empty)
+                table = from t in table where t.DES_GENDER == DES_GENDER select t;
+
+            if (comboBox_DES_FH.Text != String.Empty)
+            {
+                int FH_ID = get_FH_ID_by_FH_NAME(DES_FH_NAME);
+                table = from t in table where t.DES_FH == FH_ID select t;
+            }
+
+            if (DES_BIRTHDAY != String.Empty)
+                table = from t in table where t.DES_BIRTHDAY == DES_BIRTHDAY select t;
+
+            if (comboBox_DES_PASSPORT.Text != String.Empty)
+                table = from t in table where t.DES_PASSPORT == DES_PASSPORT select t;
+
+            dataGridViewDES.DataSource = table.ToList();
+        }
+
+        private void btn_ADD_DES_Click(object sender, EventArgs e)
+        {
+            AddDesignerForm desform = new AddDesignerForm(ctx);
+            desform.ShowDialog();
+
+            UpdateDataGridViewCL();
+            UpdateDataGridViewFH();
+            UpdateDataGridViewDES();
+        }
+
+        private List<int> get_CL_IDs_by_CL_DES(int CL_DES)
+        {
+            return (from c in ctx.Clothes where c.CL_DES == CL_DES select c.CL_ID).ToList();
+        }
+
+        private void btn_DEL_DES_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int DES_ID = Convert.ToInt32(dataGridViewDES.CurrentRow.Cells["dESIDDataGridViewTextBoxColumn"].Value);
+
+                var DEsToRmove = ctx.Designers.SingleOrDefault(x => x.DES_ID == DES_ID);
+
+                List<int> CL_IDs = get_CL_IDs_by_CL_DES(DES_ID);
+                
+                foreach(int CL_ID in CL_IDs)
+                {
+                    var CLToRemove = ctx.Clothes.SingleOrDefault(x => x.CL_ID == CL_ID);
+
+                    ctx.Clothes.Remove(CLToRemove);
+
+                    var CLSHToReove = (from c in ctx.ClothesInShop where c.CLSH_CL == CL_ID select c).ToList();
+
+                    foreach (var CLSH in CLSHToReove)
+                        ctx.ClothesInShop.Remove(CLSH);
+                }
+
+                ctx.Designers.Remove(DEsToRmove);
+                ctx.SaveChanges();
+
+                UpdateDataGridViewCL();
+                UpdateDataGridViewDES();
+                UpdateDataGridViewFH();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void btn_CHANGE_DES_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int DES_ID = Convert.ToInt32(dataGridViewDES.CurrentRow.Cells["dESIDDataGridViewTextBoxColumn"].Value);
+
+                ChangeDesignerForm cgdes = new ChangeDesignerForm(ctx, DES_ID);
+                cgdes.ShowDialog();
+
+                UpdateDataGridViewCL();
+                UpdateDataGridViewDES();
                 UpdateDataGridViewFH();
             }
             catch

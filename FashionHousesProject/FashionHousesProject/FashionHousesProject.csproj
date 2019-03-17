@@ -66,6 +66,12 @@
     <Compile Include="AddClothToShopForm.Designer.cs">
       <DependentUpon>AddClothToShopForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddDesignerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDesignerForm.Designer.cs">
+      <DependentUpon>AddDesignerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddDivisionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,12 @@
     </Compile>
     <Compile Include="ChangeCLSHForm.Designer.cs">
       <DependentUpon>ChangeCLSHForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeDesignerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeDesignerForm.Designer.cs">
+      <DependentUpon>ChangeDesignerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ChangeDivision.cs">
       <SubType>Form</SubType>
@@ -146,6 +158,9 @@
     <EmbeddedResource Include="AddClothToShopForm.resx">
       <DependentUpon>AddClothToShopForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddDesignerForm.resx">
+      <DependentUpon>AddDesignerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddDivisionForm.resx">
       <DependentUpon>AddDivisionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeCLSHForm.resx">
       <DependentUpon>ChangeCLSHForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeDesignerForm.resx">
+      <DependentUpon>ChangeDesignerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeDivision.resx">
       <DependentUpon>ChangeDivision.cs</DependentUpon>

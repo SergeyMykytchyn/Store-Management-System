@@ -131,7 +131,6 @@
             this.MinimumSize = new System.Drawing.Size(400, 330);
             this.Name = "ChangeFashionHouse";
             this.Text = "Змiнити Дом Моди";
-            this.Load += new System.EventHandler(this.ChangeFashionHouse_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
