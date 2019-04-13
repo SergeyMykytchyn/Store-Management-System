@@ -34,6 +34,12 @@ namespace FashionHousesProject
                 return;
             }
 
+            if (textBox_DIV_QTY.Text != String.Empty && DIV_QTY < 1)
+            {
+                MessageBox.Show("Iнформацiя про пiдроздiл не змiнилася, помилка вхiдних даних", "Повiдомлення");
+                return;
+            }
+
             var Div_to_change = (from c in ctx.Divisions where c.DIV_ID == DIV_ID select c).First();
 
             if (DIV_NAME != String.Empty)

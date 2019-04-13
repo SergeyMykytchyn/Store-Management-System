@@ -196,20 +196,35 @@ namespace FashionHousesProject
 
         private void btn_add_CL_to_SH_Click(object sender, EventArgs e)
         {
-            var row = dataGridViewCL.CurrentCell.OwningRow;
-            int CL_ID = Convert.ToInt32(row.Cells["cLIDDataGridViewTextBoxColumn"].Value);
+            try
+            {
+                var row = dataGridViewCL.CurrentCell.OwningRow;
 
-            AddClothToShopForm cl_sh = new AddClothToShopForm(CL_ID);
-            cl_sh.ShowDialog();
+                int CL_ID = Convert.ToInt32(row.Cells["cLIDDataGridViewTextBoxColumn"].Value);
+
+                AddClothToShopForm cl_sh = new AddClothToShopForm(CL_ID);
+                cl_sh.ShowDialog();
+            }
+            catch
+            {
+
+            }
         }
 
         private void dataGridViewCL_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var row = dataGridViewCL.CurrentCell.OwningRow;
-            int CL_ID = Convert.ToInt32(row.Cells["cLIDDataGridViewTextBoxColumn"].Value);
+            try
+            {
+                var row = dataGridViewCL.CurrentCell.OwningRow;
+                int CL_ID = Convert.ToInt32(row.Cells["cLIDDataGridViewTextBoxColumn"].Value);
 
-            ShowMeClothInShops clsh = new ShowMeClothInShops(CL_ID);
-            clsh.ShowDialog();
+                ShowMeClothInShops clsh = new ShowMeClothInShops(CL_ID);
+                clsh.ShowDialog();
+            }
+            catch
+            {
+
+            }
         }
 
         private void btn_Change_CL_Click(object sender, EventArgs e)
